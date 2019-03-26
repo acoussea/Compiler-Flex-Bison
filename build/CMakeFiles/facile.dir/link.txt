@@ -1,0 +1,1 @@
+/usr/bin/cc  -g   CMakeFiles/facile.dir/facile.lex.c.o CMakeFiles/facile.dir/facile.y.c.o  -o facile -rdynamic -lglib-2.0 
