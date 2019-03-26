@@ -35,12 +35,24 @@ extern void produce_code(GNode * node);
 %token TOK_CLOSE_PARENTHESIS
 %token TOK_PRINT
 %token TOK_READ
+
 %token TOK_IF
 %token TOK_THEN
 %token TOK_ELSE
 %token TOK_ELIF
 %token TOK_END
 
+%token TOK_FALSE
+%token TOK_TRUE
+%token TOK_NOT
+%left TOK_AND
+%left TOK_OR
+%left TOK_SUPEQ
+%left TOK_SUP
+%left TOK_INF
+%left TOK_INFEQ
+%left TOK_DIFF
+%left TOK_EQ
 
 %type<node> code
 %type<node> expr
@@ -49,6 +61,10 @@ extern void produce_code(GNode * node);
 %type<node> print
 %type<node> read
 %type<node> affectation
+%type<node> if
+%type<node> elif
+%type<node> else
+%type<node> booleanexpr
 
 %union {
 	gulong number;
@@ -85,6 +101,8 @@ instruction:
 	print
 |
 	read
+|
+	if
 ;
 
 ident:
@@ -124,6 +142,8 @@ read:
 		g_node_append($$, $2);
 	}
 ;
+
+
 
 expr:
 	ident
@@ -168,6 +188,30 @@ expr:
 	}
 ;
 
+booleanexpr :
+	TOK_FALSE
+	{
+		$$ = g_node_new("brfalse.s");
+	}
+|
+	TOK_TRUE
+	{
+		$$ = g_node_new("brtrue.s");
+	}
+;
+
+if : 
+	TOK_IF expr TOK_THEN
+	{
+		
+	}
+;
+
+else :
+;
+
+elif :
+;
 %%
 
 #include <stdlib.h>
