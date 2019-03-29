@@ -49,6 +49,30 @@ read	return TOK_READ;
 
 "end"	return TOK_END;
 
+"false" return TOK_FALSE;
+
+"true"	return TOK_TRUE;
+
+">="	return TOK_SUPEQ;
+
+">"	return TOK_SUP;
+
+"<"	return TOK_INF;
+
+"<="	return TOK_INFEQ;
+
+"#" 	return TOK_DIFF;
+
+"="	return TOK_EQ;
+
+"not"	return TOK_NOT;
+
+"and"	return TOK_AND;
+
+"or" 	return TOK_OR;
+
+
+
 [ \t\n]	;
 
 . return yytext[0];

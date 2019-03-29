@@ -103,6 +103,10 @@ instruction:
 	read
 |
 	if
+|
+	elseif
+|
+	else
 ;
 
 ident:
@@ -198,10 +202,77 @@ booleanexpr :
 	{
 		$$ = g_node_new("brtrue.s");
 	}
+|
+	expr TOK_SUPEQ expr
+	{
+		$$ = g_node_new("bge.s");
+		g_node_append($$, $1);	
+		g_node_append($$, $3);
+	}
+|
+	expr TOK_SUP expr
+	{
+		$$ = g_node_new("bgt.s");
+		g_node_append($$, $1);	
+		g_node_append($$, $3);
+	}
+|
+	expr TOK_INF expr
+	{
+		$$ = g_node_new("blt.s");
+		g_node_append($$, $1);	
+		g_node_append($$, $3);
+	}
+|
+	expr TOK_INFEQ expr
+	{
+		$$ = g_node_new("ble.s");
+		g_node_append($$, $1);	
+		g_node_append($$, $3);
+	}
+|
+	expr TOK_DIFF expr
+	{
+		$$ = g_node_new("bne.un.s");
+		g_node_append($$, $1);	
+		g_node_append($$, $3);
+	}
+|
+	expr TOK_EQ expr
+	{
+		$$ = g_node_new("beq.s");
+		g_node_append($$, $1);	
+		g_node_append($$, $3);
+	}
+|
+	TOK_NOT booleanexpr
+	{
+		$$ = g_node_new("not");
+		g_node_append($$, $2);
+	}
+|
+	booleanexpr TOK_AND booleanexpr
+	{
+		$$ = g_node_new("and");
+		g_node_append($$, $1);	
+		g_node_append($$, $3);
+	}
+|
+	booleanexpr TOK_OR booleanexpr
+	{
+		$$ = g_node_new("or");
+		g_node_append($$, $1);	
+		g_node_append($$, $3);
+	}
+|
+	TOK_OPEN_PARENTHESIS booleanexpr TOK_CLOSE_PARENTHESIS
+	{
+		$$ = g_node_new("2");
+	}
 ;
 
 if : 
-	TOK_IF expr TOK_THEN
+	TOK_IF booleanexpr TOK_THEN
 	{
 		
 	}
