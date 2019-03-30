@@ -39,7 +39,7 @@ extern void produce_code(GNode * node);
 %token TOK_IF
 %token TOK_THEN
 %token TOK_ELSE
-%token TOK_ELIF
+%token TOK_ELSEIF
 %token TOK_END
 
 %token TOK_FALSE
@@ -62,7 +62,7 @@ extern void produce_code(GNode * node);
 %type<node> read
 %type<node> affectation
 %type<node> if
-%type<node> elif
+%type<node> elseif
 %type<node> else
 %type<node> booleanexpr
 
@@ -267,22 +267,70 @@ booleanexpr :
 |
 	TOK_OPEN_PARENTHESIS booleanexpr TOK_CLOSE_PARENTHESIS
 	{
-		$$ = g_node_new("2");
+		$$ = g_node_new("booleanexpr");
+		g_node_append($$, $1);
 	}
 ;
 
 if : 
-	TOK_IF booleanexpr TOK_THEN
+	TOK_IF booleanexpr TOK_THEN code TOK_END
 	{
-		
+		$$ = g_node_new("if");
+		g_node_append($$, $2);	
+		g_node_append($$, $4);
+	}
+|
+	TOK_IF booleanexpr TOK_THEN code else TOK_END
+	{
+		$$ = g_node_new("if");
+		g_node_append($$, $2);	
+		g_node_append($$, $4);
+		g_node_append($$, $5);
+	}	
+|
+	TOK_IF booleanexpr TOK_THEN code elseif TOK_END
+	{
+		$$ = g_node_new("if");
+		g_node_append($$, $2);	
+		g_node_append($$, $4);
+		g_node_append($$, $5);
+	}
+|
+	TOK_IF booleanexpr TOK_THEN code elseif else TOK_END
+	{
+		$$ = g_node_new("if");
+		g_node_append($$, $2);	
+		g_node_append($$, $4);
+		g_node_append($$, $5);
+		g_node_append($$, $6);
+	}
+;
+
+elseif :
+	TOK_ELSEIF booleanexpr TOK_THEN code 
+	{
+		$$ = g_node_new("elseif");
+		g_node_append($$, $2);	
+		g_node_append($$, $4);
+	}
+|
+	TOK_ELSEIF booleanexpr TOK_THEN code elseif
+	{
+		$$ = g_node_new("elseif");
+		g_node_append($$, $2);	
+		g_node_append($$, $4);
+		g_node_append($$, $5);
 	}
 ;
 
 else :
+	TOK_ELSE code
+	{
+		$$ = g_node_new("else");
+		g_node_append($$, $2);	
+	}
 ;
 
-elif :
-;
 %%
 
 #include <stdlib.h>
@@ -350,7 +398,13 @@ void produce_code(GNode * node)
 		fprintf(stream, "	call string class [mscorlib]System.Console::ReadLine()\n");
 		fprintf(stream, "	call int32 int32::Parse(string)\n");
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
-	}
+	} else if (node->data == "if") {
+
+	} else if (node->data == "elseif") {
+
+	} else if (node->data == "else") {
+
+	} 
 }
 
 void end_code()
