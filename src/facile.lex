@@ -43,11 +43,13 @@ read	return TOK_READ;
 
 "then"	return TOK_THEN;
 
-"elif"	return TOK_ELIF;
+"elif"	return TOK_ELSEIF;
 
 "else"	return TOK_ELSE;
 
 "end"	return TOK_END;
+
+"endif"	return TOK_ENDIF;
 
 "false" return TOK_FALSE;
 

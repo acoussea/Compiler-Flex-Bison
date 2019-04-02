@@ -41,6 +41,7 @@ extern void produce_code(GNode * node);
 %token TOK_ELSE
 %token TOK_ELSEIF
 %token TOK_END
+%token TOK_ENDIF
 
 %token TOK_FALSE
 %token TOK_TRUE
@@ -268,7 +269,7 @@ booleanexpr :
 	TOK_OPEN_PARENTHESIS booleanexpr TOK_CLOSE_PARENTHESIS
 	{
 		$$ = g_node_new("booleanexpr");
-		g_node_append($$, $1);
+		g_node_append($$, $2);
 	}
 ;
 
@@ -297,6 +298,38 @@ if :
 	}
 |
 	TOK_IF booleanexpr TOK_THEN code elseif else TOK_END
+	{
+		$$ = g_node_new("if");
+		g_node_append($$, $2);	
+		g_node_append($$, $4);
+		g_node_append($$, $5);
+		g_node_append($$, $6);
+	}
+|
+	TOK_IF booleanexpr TOK_THEN code TOK_ENDIF
+	{
+		$$ = g_node_new("if");
+		g_node_append($$, $2);	
+		g_node_append($$, $4);
+	}
+|
+	TOK_IF booleanexpr TOK_THEN code else TOK_ENDIF
+	{
+		$$ = g_node_new("if");
+		g_node_append($$, $2);	
+		g_node_append($$, $4);
+		g_node_append($$, $5);
+	}	
+|
+	TOK_IF booleanexpr TOK_THEN code elseif TOK_ENDIF
+	{
+		$$ = g_node_new("if");
+		g_node_append($$, $2);	
+		g_node_append($$, $4);
+		g_node_append($$, $5);
+	}
+|
+	TOK_IF booleanexpr TOK_THEN code elseif else TOK_ENDIF
 	{
 		$$ = g_node_new("if");
 		g_node_append($$, $2);	
@@ -363,8 +396,10 @@ void begin_code()
 	fprintf(stream, ")\n");
 }
 
+
 void produce_code(GNode * node)
 {
+	static int br = 0;
 	if (node->data == "code") {
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1));
@@ -399,12 +434,54 @@ void produce_code(GNode * node)
 		fprintf(stream, "	call int32 int32::Parse(string)\n");
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
 	} else if (node->data == "if") {
-
+		for(int i = 0; i<g_node_n_children(node); i++){
+			produce_code(g_node_nth_child(node, i));
+		}
+		br++;
 	} else if (node->data == "elseif") {
-
+		for(int i = 0; i<g_node_n_children(node); i++){
+			produce_code(g_node_nth_child(node, i));
+		}
+		br++;
 	} else if (node->data == "else") {
+		produce_code(g_node_nth_child(node, 0));
+	} else if (node->data == "brfalse.s") {
+		initBranchement("	brfalse.s IL_");
+	} else if (node->data == "brtrue.s") {
+		initBranchement("	brtrue.s IL_");
+	} else if (node->data == "bge.s") {
+		initBranchement("	bge.s IL_");
+	} else if (node->data == "bgt.s") {
+		initBranchement("	bgt.s IL_");
+	} else if (node->data == "blt.s") {
+		initBranchement("	blt.s IL_");
+	} else if (node->data == "ble.s") {
+		initBranchement("	ble.s IL_");
+	} else if (node->data == "bne.un.s") {
+		initBranchement("	bne.un.s IL_");
+	} else if (node->data == "beq.s") {
+		initBranchement("	beq.s IL_");
+	} else if (node->data == "not") {
+		produce_code(g_node_nth_child(node, 0));
+		fprintf(stream, "	brtrue.s\n");
+	} else if (node->data == "and") {
+		produce_code(g_node_nth_child(node, 0));
+		initBranchement("	brfalse.s IL_");
+		produce_code(g_node_nth_child(node, 1));
+		initBranchement("	brfalse.s IL_");
+		
+		
+	} else if (node->data == "or") {
+		produce_code(g_node_nth_child(node, 0));		
+		produce_code(g_node_nth_child(node, 1));
+	}
+}
 
-	} 
+void initBranchement(char * branchement){
+	char str[5];
+	sprintf(str,"%d",br);
+	strcat(branchement,str);
+	fprintf(stream, strcat(branchement,"\n"));
 }
 
 void end_code()

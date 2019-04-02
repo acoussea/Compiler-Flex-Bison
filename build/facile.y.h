@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_PROJET_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
-# define YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_PROJET_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
+#ifndef YY_YY_UTILISATEURS_ATANCHE_DOCUMENTS_COMPILATIONPROJET_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
+# define YY_YY_UTILISATEURS_ATANCHE_DOCUMENTS_COMPILATIONPROJET_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -56,7 +56,24 @@ extern int yydebug;
     TOK_OPEN_PARENTHESIS = 266,
     TOK_CLOSE_PARENTHESIS = 267,
     TOK_PRINT = 268,
-    TOK_READ = 269
+    TOK_READ = 269,
+    TOK_IF = 270,
+    TOK_THEN = 271,
+    TOK_ELSE = 272,
+    TOK_ELSEIF = 273,
+    TOK_END = 274,
+    TOK_ENDIF = 275,
+    TOK_FALSE = 276,
+    TOK_TRUE = 277,
+    TOK_NOT = 278,
+    TOK_AND = 279,
+    TOK_OR = 280,
+    TOK_SUPEQ = 281,
+    TOK_SUP = 282,
+    TOK_INF = 283,
+    TOK_INFEQ = 284,
+    TOK_DIFF = 285,
+    TOK_EQ = 286
   };
 #endif
 
@@ -65,13 +82,13 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 47 "facile.y" /* yacc.c:1909  */
+#line 70 "facile.y" /* yacc.c:1909  */
 
 	gulong number;
 	char *string;
 	GNode * node;
 
-#line 75 "/media/Qi/acoussea/Cours/L3/compilation/Projet_Flex-Bison/build/facile.y.h" /* yacc.c:1909  */
+#line 92 "/Utilisateurs/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -84,4 +101,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_PROJET_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED  */
+#endif /* !YY_YY_UTILISATEURS_ATANCHE_DOCUMENTS_COMPILATIONPROJET_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED  */
