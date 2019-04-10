@@ -7,7 +7,7 @@ public class HelloWorld
     {
 	int a=5;
 	int b =3;
-	if(a==b){
+	if(a!=b){
         	Console.WriteLine(1);
 	} else {
 		Console.WriteLine(0);

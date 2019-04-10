@@ -1466,7 +1466,7 @@ yyreduce:
   case 24:
 #line 210 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("bge.s");
+		(yyval.node) = g_node_new(">=");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
@@ -1476,7 +1476,7 @@ yyreduce:
   case 25:
 #line 217 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("bgt.s");
+		(yyval.node) = g_node_new(">");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
@@ -1486,7 +1486,7 @@ yyreduce:
   case 26:
 #line 224 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("blt.s");
+		(yyval.node) = g_node_new("<");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
@@ -1496,7 +1496,7 @@ yyreduce:
   case 27:
 #line 231 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("ble.s");
+		(yyval.node) = g_node_new("<=");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
@@ -1506,7 +1506,7 @@ yyreduce:
   case 28:
 #line 238 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("bne.un.s");
+		(yyval.node) = g_node_new("#");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
@@ -1990,11 +1990,26 @@ void produce_code(GNode * node)
 		fprintf(stream, "	ldc.i4\t0\n");
 	} else if (node->data == "true") {
 		fprintf(stream, "	ldc.i4\t1\n");
-	} else if (node->data == "bge.s") {
-	} else if (node->data == "bgt.s") {
-	} else if (node->data == "blt.s") {
-	} else if (node->data == "ble.s") {
-	} else if (node->data == "bne.un.s") {
+	} else if (node->data == "<") {
+		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	bge %s%d\n",branchement,cpt);
+	} else if (node->data == "<=") {
+		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	bgt %s%d\n",branchement,cpt);
+	} else if (node->data == ">") {
+		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	ble %s%d\n",branchement,cpt);
+	} else if (node->data == ">=") {
+		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	blt %s%d\n",branchement,cpt);
+	} else if (node->data == "#") {
+		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	beq %s%d\n",branchement,cpt);
 	} else if (node->data == "=") {
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1));

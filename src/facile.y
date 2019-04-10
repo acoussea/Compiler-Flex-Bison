@@ -208,35 +208,35 @@ booleanexpr :
 |
 	expr TOK_SUPEQ expr
 	{
-		$$ = g_node_new("bge.s");
+		$$ = g_node_new(">=");
 		g_node_append($$, $1);	
 		g_node_append($$, $3);
 	}
 |
 	expr TOK_SUP expr
 	{
-		$$ = g_node_new("bgt.s");
+		$$ = g_node_new(">");
 		g_node_append($$, $1);	
 		g_node_append($$, $3);
 	}
 |
 	expr TOK_INF expr
 	{
-		$$ = g_node_new("blt.s");
+		$$ = g_node_new("<");
 		g_node_append($$, $1);	
 		g_node_append($$, $3);
 	}
 |
 	expr TOK_INFEQ expr
 	{
-		$$ = g_node_new("ble.s");
+		$$ = g_node_new("<=");
 		g_node_append($$, $1);	
 		g_node_append($$, $3);
 	}
 |
 	expr TOK_DIFF expr
 	{
-		$$ = g_node_new("bne.un.s");
+		$$ = g_node_new("#");
 		g_node_append($$, $1);	
 		g_node_append($$, $3);
 	}
@@ -447,22 +447,33 @@ void produce_code(GNode * node)
 		fprintf(stream, "	ldc.i4\t0\n");
 	} else if (node->data == "true") {
 		fprintf(stream, "	ldc.i4\t1\n");
-	} else if (node->data == "bge.s") {
-	} else if (node->data == "bgt.s") {
-	} else if (node->data == "blt.s") {
-	} else if (node->data == "ble.s") {
-	} else if (node->data == "bne.un.s") {
+	} else if (node->data == "<") {
+		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	bge %s%d\n",branchement,cpt);
+	} else if (node->data == "<=") {
+		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	bgt %s%d\n",branchement,cpt);
+	} else if (node->data == ">") {
+		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	ble %s%d\n",branchement,cpt);
+	} else if (node->data == ">=") {
+		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	blt %s%d\n",branchement,cpt);
+	} else if (node->data == "#") {
+		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	beq %s%d\n",branchement,cpt);
 	} else if (node->data == "=") {
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1));
 		fprintf(stream, "	bne.un %s%d\n",branchement,cpt);
 	} else if (node->data == "not") {
 	} else if (node->data == "and") {
-		
-		
 	} else if (node->data == "or") {
-		produce_code(g_node_nth_child(node, 0));		
-		produce_code(g_node_nth_child(node, 1));
 	}
 }
 

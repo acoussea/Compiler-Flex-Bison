@@ -3,7 +3,6 @@ b:= 678 + 54 * 67;
 c := 54 - 56 - 76;
 d := a*2+56;
 e := 3;
-f := 3;
-if a = e then if f = a then if f = e then print f; end end end
+if a # e then print e; end
 print d;
 
