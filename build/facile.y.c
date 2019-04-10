@@ -1977,16 +1977,20 @@ void produce_code(GNode * node)
 		fprintf(stream, "	call string class [mscorlib]System.Console::ReadLine()\n");
 		fprintf(stream, "	call int32 int32::Parse(string)\n");
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
-	} else if (node->data == "if") {//TOK_IF booleanexpr TOK_THEN code TOK_END
+	} else if (node->data == "if") {//TOK_IF booleanexpr TOK_THEN code else TOK_END
 		
 		produce_code(g_node_nth_child(node, 0));
 		fprintf(stream, "%s%d:\n",branchement,cpt);
-		produce_code(g_node_nth_child(node, 1)); 
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "br %s%d\n",branchement,cpt+2);
 		fprintf(stream, "%s%d:\n",branchement,cpt+1);
+		produce_code(g_node_nth_child(node, 2));
+		fprintf(stream, "%s%d:\n",branchement,cpt+2);
 		cpt+=2;
 
 	} else if (node->data == "elseif") {
 	} else if (node->data == "else") {
+		produce_code(g_node_nth_child(node, 0)); 
 	} else if (node->data == "false") {
 		fprintf(stream, "	ldc.i4\t0\n");
 		fprintf(stream, "	brfalse %s%d\n",branchement,cpt+1);

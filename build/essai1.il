@@ -29,10 +29,17 @@
 	stloc	4
 	ldc.i4	3
 	stloc	5
+	ldloc	0
+	ldloc	4
+	bne.un IL_1
 IL_0:
 	ldloc	4
 	call void class [mscorlib]System.Console::WriteLine(int32)
+br IL_2
 IL_1:
+	ldloc	3
+	call void class [mscorlib]System.Console::WriteLine(int32)
+IL_2:
 	ldloc	3
 	call void class [mscorlib]System.Console::WriteLine(int32)
 	ret
