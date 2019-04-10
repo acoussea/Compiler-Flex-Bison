@@ -18,12 +18,11 @@ print	return TOK_PRINT;
 
 read	return TOK_READ;
 
-
 "if"	return TOK_IF;
 
 "then"	return TOK_THEN;
 
-"elif"	return TOK_ELSEIF;
+"elseif" return TOK_ELSEIF;
 
 "else"	return TOK_ELSE;
 
@@ -73,7 +72,6 @@ read	return TOK_READ;
 "("	return TOK_OPEN_PARENTHESIS;
 
 ")"	return TOK_CLOSE_PARENTHESIS;
-
 
 [ \t\n]	;
 

@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_YY_HOME_ATANCHE_DOCUMENTS_COMPILATIONPROJET_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
-# define YY_YY_HOME_ATANCHE_DOCUMENTS_COMPILATIONPROJET_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
+#ifndef YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_COMPILER_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
+# define YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_COMPILER_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -47,16 +47,16 @@ extern int yydebug;
   {
     TOK_NUMBER = 258,
     TOK_IDENT = 259,
-    TOK_PRINT = 260,
-    TOK_READ = 261,
-    TOK_AFFECT = 262,
-    TOK_SEMICOLON = 263,
-    TOK_ADD = 264,
-    TOK_SUB = 265,
-    TOK_MUL = 266,
-    TOK_DIV = 267,
-    TOK_OPEN_PARENTHESIS = 268,
-    TOK_CLOSE_PARENTHESIS = 269,
+    TOK_AFFECT = 260,
+    TOK_SEMICOLON = 261,
+    TOK_ADD = 262,
+    TOK_SUB = 263,
+    TOK_MUL = 264,
+    TOK_DIV = 265,
+    TOK_OPEN_PARENTHESIS = 266,
+    TOK_CLOSE_PARENTHESIS = 267,
+    TOK_PRINT = 268,
+    TOK_READ = 269,
     TOK_IF = 270,
     TOK_THEN = 271,
     TOK_ELSE = 272,
@@ -88,7 +88,7 @@ union YYSTYPE
 	char *string;
 	GNode * node;
 
-#line 92 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.h" /* yacc.c:1909  */
+#line 92 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -101,4 +101,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_HOME_ATANCHE_DOCUMENTS_COMPILATIONPROJET_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED  */
+#endif /* !YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_COMPILER_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED  */

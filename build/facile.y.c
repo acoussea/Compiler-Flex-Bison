@@ -84,9 +84,11 @@ unsigned int max_stack = 10;
 extern void begin_code();
 extern void end_code();
 extern void produce_code(GNode * node);
+int cpt = 0;
+char* branchement = "IL_";	
 
 
-#line 90 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:339  */
+#line 92 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -101,13 +103,13 @@ extern void produce_code(GNode * node);
 # undef YYERROR_VERBOSE
 # define YYERROR_VERBOSE 1
 #else
-# define YYERROR_VERBOSE 0
+# define YYERROR_VERBOSE 1
 #endif
 
 /* In a future release of Bison, this section will be replaced
    by #include "facile.y.h".  */
-#ifndef YY_YY_HOME_ATANCHE_DOCUMENTS_COMPILATIONPROJET_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
-# define YY_YY_HOME_ATANCHE_DOCUMENTS_COMPILATIONPROJET_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
+#ifndef YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_COMPILER_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
+# define YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_COMPILER_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -123,16 +125,16 @@ extern int yydebug;
   {
     TOK_NUMBER = 258,
     TOK_IDENT = 259,
-    TOK_PRINT = 260,
-    TOK_READ = 261,
-    TOK_AFFECT = 262,
-    TOK_SEMICOLON = 263,
-    TOK_ADD = 264,
-    TOK_SUB = 265,
-    TOK_MUL = 266,
-    TOK_DIV = 267,
-    TOK_OPEN_PARENTHESIS = 268,
-    TOK_CLOSE_PARENTHESIS = 269,
+    TOK_AFFECT = 260,
+    TOK_SEMICOLON = 261,
+    TOK_ADD = 262,
+    TOK_SUB = 263,
+    TOK_MUL = 264,
+    TOK_DIV = 265,
+    TOK_OPEN_PARENTHESIS = 266,
+    TOK_CLOSE_PARENTHESIS = 267,
+    TOK_PRINT = 268,
+    TOK_READ = 269,
     TOK_IF = 270,
     TOK_THEN = 271,
     TOK_ELSE = 272,
@@ -164,7 +166,7 @@ union YYSTYPE
 	char *string;
 	GNode * node;
 
-#line 168 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:355  */
+#line 170 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -177,11 +179,11 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_HOME_ATANCHE_DOCUMENTS_COMPILATIONPROJET_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED  */
+#endif /* !YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_COMPILER_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
-#line 185 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:358  */
+#line 187 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -423,16 +425,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  3
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   111
+#define YYLAST   123
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  32
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  14
+#define YYNNTS  13
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  41
+#define YYNRULES  44
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  76
+#define YYNSTATES  82
 
 /* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
    by yylex, with out-of-bounds checking.  */
@@ -484,24 +486,24 @@ static const yytype_uint16 yyrline[] =
        0,    80,    80,    89,    96,   102,   104,   106,   108,   110,
      112,   116,   129,   138,   146,   156,   158,   164,   171,   178,
      185,   192,   199,   204,   209,   216,   223,   230,   237,   244,
-     251,   257,   264,   271,   279,   288,   294,   302,   308,   314,
-     321,   326
+     251,   257,   264,   271,   279,   286,   294,   302,   311,   318,
+     326,   334,   345,   352,   362
 };
 #endif
 
-#if YYDEBUG || YYERROR_VERBOSE || 0
+#if YYDEBUG || YYERROR_VERBOSE || 1
 /* YYTNAME[SYMBOL-NUM] -- String name of the symbol SYMBOL-NUM.
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "$end", "error", "$undefined", "TOK_NUMBER", "TOK_IDENT", "TOK_PRINT",
-  "TOK_READ", "TOK_AFFECT", "TOK_SEMICOLON", "TOK_ADD", "TOK_SUB",
-  "TOK_MUL", "TOK_DIV", "TOK_OPEN_PARENTHESIS", "TOK_CLOSE_PARENTHESIS",
+  "$end", "error", "$undefined", "TOK_NUMBER", "TOK_IDENT", "TOK_AFFECT",
+  "TOK_SEMICOLON", "TOK_ADD", "TOK_SUB", "TOK_MUL", "TOK_DIV",
+  "TOK_OPEN_PARENTHESIS", "TOK_CLOSE_PARENTHESIS", "TOK_PRINT", "TOK_READ",
   "TOK_IF", "TOK_THEN", "TOK_ELSE", "TOK_ELSEIF", "TOK_END", "TOK_ENDIF",
   "TOK_FALSE", "TOK_TRUE", "TOK_NOT", "TOK_AND", "TOK_OR", "TOK_SUPEQ",
   "TOK_SUP", "TOK_INF", "TOK_INFEQ", "TOK_DIFF", "TOK_EQ", "$accept",
   "program", "code", "instruction", "ident", "affectation", "print",
-  "read", "expr", "booleanexpr", "if", "elseif", "else", "end", YY_NULLPTR
+  "read", "expr", "booleanexpr", "if", "elseif", "else", YY_NULLPTR
 };
 #endif
 
@@ -517,10 +519,10 @@ static const yytype_uint16 yytoknum[] =
 };
 # endif
 
-#define YYPACT_NINF -9
+#define YYPACT_NINF -60
 
 #define yypact_value_is_default(Yystate) \
-  (!!((Yystate) == (-9)))
+  (!!((Yystate) == (-60)))
 
 #define YYTABLE_NINF -1
 
@@ -531,14 +533,15 @@ static const yytype_uint16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      -9,     9,     1,    -9,    -9,    -1,    11,    10,    -9,    10,
-      -9,    17,    -9,    -9,    -9,    -9,    -9,    -9,    -9,    -1,
-      -9,    77,    49,    10,    -9,    -9,    10,    50,    66,     1,
-      68,    -1,    85,    -9,    -1,    -1,    -1,    -1,    -9,    44,
-      -4,     5,    -1,    -1,    -1,    -1,    -1,    -1,    -9,    10,
-      10,    -9,    92,    -9,    99,    24,    52,    -9,    -9,    96,
-      96,    96,    96,    96,    96,     1,    -8,    -9,     1,    -9,
-      81,    -9,    23,    -9,    -9,    -9
+     -60,     7,     1,   -60,   -60,    -1,    17,     9,   -60,     9,
+     -60,    24,   -60,   -60,   -60,   -60,   -60,   -60,   -60,    -1,
+     -60,    61,    27,     9,   -60,   -60,     9,    52,    85,     1,
+      87,    -1,    78,   -60,    -1,    -1,    -1,    -1,   -60,    46,
+      11,    18,    -1,    -1,    -1,    -1,    -1,    -1,   -60,     9,
+       9,   -60,    98,   -60,   109,    55,    47,   -60,   -60,   106,
+     106,   106,   106,   106,   106,    80,    71,   -60,     1,   -60,
+     -60,   -60,    72,   101,   -60,   -60,   -60,   103,   -60,   -60,
+     -60,   -60
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -548,26 +551,27 @@ static const yytype_uint8 yydefact[] =
 {
        4,     0,     2,     1,    11,     0,     0,     0,     4,     0,
        3,     0,     5,     6,     7,     8,     9,    10,    16,     0,
-      15,     0,     0,     0,    22,    23,     0,     0,     0,    35,
+      15,     0,     0,     0,    22,    23,     0,     0,     0,    44,
        0,     0,     0,    13,     0,     0,     0,     0,    14,     0,
        0,    30,     0,     0,     0,     0,     0,     0,     4,     0,
        0,     4,     0,    21,    17,    18,    19,    20,    33,    24,
-      25,    26,    27,    28,    29,    35,    31,    32,    35,    12,
-       9,     9,     0,    41,    40,    34
+      25,    26,    27,    28,    29,     0,    31,    32,    42,    12,
+      34,    38,     9,    10,     9,    36,    40,     0,    35,    39,
+      37,    41
 };
 
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -9,    -9,    -7,    -9,    -2,    -9,    -9,    -9,     3,     2,
-      -9,     0,    -3,    -9
+     -60,   -60,    -7,   -60,    -2,   -60,   -60,   -60,     3,     2,
+     -60,   -59,   -48
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
       -1,     1,     2,    10,    20,    12,    13,    14,    27,    28,
-      15,    16,    17,    75
+      15,    16,    17
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -575,48 +579,51 @@ static const yytype_int8 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_uint8 yytable[] =
 {
-      11,    29,    18,     4,    22,     4,     5,     6,    21,     3,
-      58,    30,    19,    18,     4,     4,     7,    50,     8,     9,
-      49,    50,    32,    23,    31,    40,    39,    11,    41,    49,
-      50,    24,    25,    26,    52,    36,    37,    54,    55,    56,
-      57,    65,    73,    74,    68,    59,    60,    61,    62,    63,
-      64,    66,    67,    34,    35,    36,    37,    38,    53,    34,
-      35,    36,    37,    11,    37,    70,    11,    72,    71,     0,
-      42,    43,    44,    45,    46,    47,    42,    43,    44,    45,
-      46,    47,    48,     0,    51,    33,    34,    35,    36,    37,
-      49,    50,    49,    50,    34,    35,    36,    37,     8,    53,
-      69,    34,    35,    36,    37,    34,    35,    36,    37,    35,
-      36,    37
+      11,    29,    18,     4,    22,     4,    72,     3,    21,    74,
+      19,    30,    18,     4,     5,     6,     7,    73,     8,     9,
+      23,     4,    32,    58,    77,    40,    39,    11,    41,    31,
+      24,    25,    26,    38,    52,    49,    50,    54,    55,    56,
+      57,    65,    49,    50,    68,    59,    60,    61,    62,    63,
+      64,    66,    67,    34,    35,    36,    37,    37,    53,    34,
+      35,    36,    37,    11,    36,    37,    11,    33,    34,    35,
+      36,    37,    42,    43,    44,    45,    46,    47,    42,    43,
+      44,    45,    46,    47,     4,    34,    35,    36,    37,     8,
+      53,    75,    76,     5,     6,     7,    50,     8,     9,    70,
+      71,    48,     0,    51,    69,    34,    35,    36,    37,    49,
+      50,    49,    50,    34,    35,    36,    37,    35,    36,    37,
+      78,    79,    80,    81
 };
 
 static const yytype_int8 yycheck[] =
 {
-       2,     8,     3,     4,     6,     4,     5,     6,     5,     0,
-      14,     9,    13,     3,     4,     4,    15,    25,    17,    18,
-      24,    25,    19,    13,     7,    23,    23,    29,    26,    24,
-      25,    21,    22,    23,    31,    11,    12,    34,    35,    36,
-      37,    48,    19,    20,    51,    42,    43,    44,    45,    46,
-      47,    49,    50,     9,    10,    11,    12,     8,    14,     9,
-      10,    11,    12,    65,    12,    65,    68,    70,    68,    -1,
-      26,    27,    28,    29,    30,    31,    26,    27,    28,    29,
-      30,    31,    16,    -1,    16,     8,     9,    10,    11,    12,
-      24,    25,    24,    25,     9,    10,    11,    12,    17,    14,
-       8,     9,    10,    11,    12,     9,    10,    11,    12,    10,
-      11,    12
+       2,     8,     3,     4,     6,     4,    65,     0,     5,    68,
+      11,     9,     3,     4,    13,    14,    15,    65,    17,    18,
+      11,     4,    19,    12,    72,    23,    23,    29,    26,     5,
+      21,    22,    23,     6,    31,    24,    25,    34,    35,    36,
+      37,    48,    24,    25,    51,    42,    43,    44,    45,    46,
+      47,    49,    50,     7,     8,     9,    10,    10,    12,     7,
+       8,     9,    10,    65,     9,    10,    68,     6,     7,     8,
+       9,    10,    26,    27,    28,    29,    30,    31,    26,    27,
+      28,    29,    30,    31,     4,     7,     8,     9,    10,    17,
+      12,    19,    20,    13,    14,    15,    25,    17,    18,    19,
+      20,    16,    -1,    16,     6,     7,     8,     9,    10,    24,
+      25,    24,    25,     7,     8,     9,    10,     8,     9,    10,
+      19,    20,    19,    20
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
      symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,    33,    34,     0,     4,     5,     6,    15,    17,    18,
-      35,    36,    37,    38,    39,    42,    43,    44,     3,    13,
-      36,    40,    36,    13,    21,    22,    23,    40,    41,    34,
-      41,     7,    40,     8,     9,    10,    11,    12,     8,    40,
+       0,    33,    34,     0,     4,    13,    14,    15,    17,    18,
+      35,    36,    37,    38,    39,    42,    43,    44,     3,    11,
+      36,    40,    36,    11,    21,    22,    23,    40,    41,    34,
+      41,     5,    40,     6,     7,     8,     9,    10,     6,    40,
       41,    41,    26,    27,    28,    29,    30,    31,    16,    24,
-      25,    16,    40,    14,    40,    40,    40,    40,    14,    40,
-      40,    40,    40,    40,    40,    34,    41,    41,    34,     8,
-      43,    43,    44,    19,    20,    45
+      25,    16,    40,    12,    40,    40,    40,    40,    12,    40,
+      40,    40,    40,    40,    40,    34,    41,    41,    34,     6,
+      19,    20,    43,    44,    43,    19,    20,    44,    19,    20,
+      19,    20
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
@@ -625,8 +632,8 @@ static const yytype_uint8 yyr1[] =
        0,    32,    33,    34,    34,    35,    35,    35,    35,    35,
       35,    36,    37,    38,    39,    40,    40,    40,    40,    40,
       40,    40,    41,    41,    41,    41,    41,    41,    41,    41,
-      41,    41,    41,    41,    42,    42,    43,    43,    44,    44,
-      45,    45
+      41,    41,    41,    41,    42,    42,    42,    42,    42,    42,
+      42,    42,    43,    43,    44
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
@@ -635,8 +642,8 @@ static const yytype_uint8 yyr2[] =
        0,     2,     1,     2,     0,     1,     1,     1,     1,     1,
        1,     1,     4,     3,     3,     1,     1,     3,     3,     3,
        3,     3,     1,     1,     3,     3,     3,     3,     3,     3,
-       2,     3,     3,     3,     7,     0,     5,     0,     2,     0,
-       1,     1
+       2,     3,     3,     3,     5,     6,     6,     7,     5,     6,
+       6,     7,     4,     5,     2
 };
 
 
@@ -1320,7 +1327,7 @@ yyreduce:
 	end_code();
 	g_node_destroy((yyvsp[0].node));
 }
-#line 1324 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1331 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 3:
@@ -1330,7 +1337,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-1].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));		
 	}
-#line 1334 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1341 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 4:
@@ -1338,7 +1345,7 @@ yyreduce:
     {
 		(yyval.node) = g_node_new("");
 	}
-#line 1342 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1349 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 11:
@@ -1352,7 +1359,7 @@ yyreduce:
 		}
 		g_node_append_data((yyval.node), (gpointer)value);
 	}
-#line 1356 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1363 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 12:
@@ -1362,7 +1369,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-3].node));	
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1366 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1373 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 13:
@@ -1371,7 +1378,7 @@ yyreduce:
 		(yyval.node) = g_node_new("print");
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1375 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1382 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 14:
@@ -1380,7 +1387,7 @@ yyreduce:
 		(yyval.node) = g_node_new("read");
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1384 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1391 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 16:
@@ -1389,7 +1396,7 @@ yyreduce:
 		(yyval.node) = g_node_new("number");
 		g_node_append_data((yyval.node), (gpointer)(yyvsp[0].number));
 	}
-#line 1393 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1400 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 17:
@@ -1399,7 +1406,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1403 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1410 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 18:
@@ -1409,7 +1416,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1413 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1420 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 19:
@@ -1419,7 +1426,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1423 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1430 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 20:
@@ -1429,7 +1436,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1433 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1440 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 21:
@@ -1437,83 +1444,83 @@ yyreduce:
     {
 		(yyval.node) = (yyvsp[-1].node);
 	}
-#line 1441 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1448 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 22:
 #line 200 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("brfalse.s");
+		(yyval.node) = g_node_new("false");
 	}
-#line 1449 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1456 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 23:
 #line 205 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("brtrue.s");
+		(yyval.node) = g_node_new("true");
 	}
-#line 1457 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1464 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 24:
 #line 210 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("blt.s");
+		(yyval.node) = g_node_new("bge.s");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1467 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1474 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 25:
 #line 217 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("ble.s");
+		(yyval.node) = g_node_new("bgt.s");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1477 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1484 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 26:
 #line 224 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("bge.s");
+		(yyval.node) = g_node_new("blt.s");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1487 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1494 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 27:
 #line 231 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("bgt.s");
+		(yyval.node) = g_node_new("ble.s");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1497 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1504 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 28:
 #line 238 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("beq.s");
+		(yyval.node) = g_node_new("bne.un.s");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1507 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1514 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 29:
 #line 245 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("bne.un");
+		(yyval.node) = g_node_new("=");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1517 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1524 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 30:
@@ -1522,7 +1529,7 @@ yyreduce:
 		(yyval.node) = g_node_new("not");
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1526 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1533 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 31:
@@ -1532,7 +1539,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1536 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1543 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 32:
@@ -1542,7 +1549,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1546 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1553 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 33:
@@ -1551,11 +1558,43 @@ yyreduce:
 		(yyval.node) = g_node_new("booleanexpr");
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1555 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1562 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 34:
 #line 280 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("if");
+		g_node_append((yyval.node), (yyvsp[-3].node));	
+		g_node_append((yyval.node), (yyvsp[-1].node));
+	}
+#line 1572 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
+  case 35:
+#line 287 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("if");
+		g_node_append((yyval.node), (yyvsp[-4].node));	
+		g_node_append((yyval.node), (yyvsp[-2].node));
+		g_node_append((yyval.node), (yyvsp[-1].node));
+	}
+#line 1583 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
+  case 36:
+#line 295 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("if");
+		g_node_append((yyval.node), (yyvsp[-4].node));	
+		g_node_append((yyval.node), (yyvsp[-2].node));
+		g_node_append((yyval.node), (yyvsp[-1].node));
+	}
+#line 1594 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
+  case 37:
+#line 303 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("if");
 		g_node_append((yyval.node), (yyvsp[-5].node));	
@@ -1563,71 +1602,85 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1567 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1606 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 35:
-#line 288 "facile.y" /* yacc.c:1646  */
+  case 38:
+#line 312 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("");
+		(yyval.node) = g_node_new("if");
+		g_node_append((yyval.node), (yyvsp[-3].node));	
+		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1575 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1616 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 36:
-#line 295 "facile.y" /* yacc.c:1646  */
+  case 39:
+#line 319 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("if");
+		g_node_append((yyval.node), (yyvsp[-4].node));	
+		g_node_append((yyval.node), (yyvsp[-2].node));
+		g_node_append((yyval.node), (yyvsp[-1].node));
+	}
+#line 1627 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
+  case 40:
+#line 327 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("if");
+		g_node_append((yyval.node), (yyvsp[-4].node));	
+		g_node_append((yyval.node), (yyvsp[-2].node));
+		g_node_append((yyval.node), (yyvsp[-1].node));
+	}
+#line 1638 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
+  case 41:
+#line 335 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("if");
+		g_node_append((yyval.node), (yyvsp[-5].node));	
+		g_node_append((yyval.node), (yyvsp[-3].node));
+		g_node_append((yyval.node), (yyvsp[-2].node));
+		g_node_append((yyval.node), (yyvsp[-1].node));
+	}
+#line 1650 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
+  case 42:
+#line 346 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("elseif");
+		g_node_append((yyval.node), (yyvsp[-2].node));	
+		g_node_append((yyval.node), (yyvsp[0].node));
+	}
+#line 1660 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
+  case 43:
+#line 353 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("elseif");
 		g_node_append((yyval.node), (yyvsp[-3].node));	
 		g_node_append((yyval.node), (yyvsp[-1].node));
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1586 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1671 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 37:
-#line 302 "facile.y" /* yacc.c:1646  */
-    {
-		(yyval.node) = g_node_new("");
-	}
-#line 1594 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
-    break;
-
-  case 38:
-#line 309 "facile.y" /* yacc.c:1646  */
+  case 44:
+#line 363 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("else");
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1603 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
-    break;
-
-  case 39:
-#line 314 "facile.y" /* yacc.c:1646  */
-    {
-		(yyval.node) = g_node_new("");
-	}
-#line 1611 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
-    break;
-
-  case 40:
-#line 322 "facile.y" /* yacc.c:1646  */
-    {
-		(yyval.node) = g_node_new("endif");
-	}
-#line 1619 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
-    break;
-
-  case 41:
-#line 327 "facile.y" /* yacc.c:1646  */
-    {
-		(yyval.node) = g_node_new("end");
-	}
-#line 1627 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1680 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
 
-#line 1631 "/home/atanche/Documents/CompilationProjet/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1684 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1855,7 +1908,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 333 "facile.y" /* yacc.c:1906  */
+#line 369 "facile.y" /* yacc.c:1906  */
 
 
 #include <stdlib.h>
@@ -1891,8 +1944,6 @@ void begin_code()
 
 void produce_code(GNode * node)
 {
-	static int br = 0;
-	static char * IL = "IL_";
 	if (node->data == "code") {
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1));
@@ -1926,56 +1977,37 @@ void produce_code(GNode * node)
 		fprintf(stream, "	call string class [mscorlib]System.Console::ReadLine()\n");
 		fprintf(stream, "	call int32 int32::Parse(string)\n");
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
-	} else if (node->data == "if") { // TOK_IF booleanexpr TOK_THEN code elseif else end
-		int cpt = br;
-		fprintf(stream, "%sIF%d :", IL, cpt); // IF
+	} else if (node->data == "if") {//TOK_IF booleanexpr TOK_THEN code TOK_END
+
 		produce_code(g_node_nth_child(node, 0));
-		fprintf(stream, " %s%d\n", IL, cpt);
-			
-		produce_code(g_node_nth_child(node, 1));
-		
-		fprintf(stream, "%sELSEIF%d :", IL, cpt); // ELSEIF
-		produce_code(g_node_nth_child(node, 2));
-		fprintf(stream, "	br %s%d\n", IL , cpt);
-		
-		fprintf(stream, "%sELSE%d :", IL, cpt); // ELSE
-		produce_code(g_node_nth_child(node, 3)); 
-		
-		produce_code(g_node_nth_child(node, 4)); // END
-		fprintf(stream, "%sIF%d : \n", IL , cpt);
+		produce_code(g_node_nth_child(node, 1)); 
+		fprintf(stream, "%s%d:\n",branchement,cpt);
+		cpt+=1;
+
 	} else if (node->data == "elseif") {
-		int cpt = br;
-		produce_code(g_node_nth_child(node, 0));
-		fprintf(stream, "	%s%d\n", IL, cpt);
-		
 	} else if (node->data == "else") {
-		produce_code(g_node_nth_child(node, 0));
-	} else if (node->data == "brfalse.s") {
+	} else if (node->data == "false") {
 		fprintf(stream, "	ldc.i4\t0\n");
-	} else if (node->data == "brtrue.s") {
+	} else if (node->data == "true") {
 		fprintf(stream, "	ldc.i4\t1\n");
 	} else if (node->data == "bge.s") {
 	} else if (node->data == "bgt.s") {
 	} else if (node->data == "blt.s") {
 	} else if (node->data == "ble.s") {
 	} else if (node->data == "bne.un.s") {
-	} else if (node->data == "bne.un") { //EQUAL
-		fprintf(stream, "	bne.un ");
-	} else if (node->data == "not") {
-		produce_code(g_node_nth_child(node, 0));
-		fprintf(stream, "	brtrue.s\n");
-	} else if (node->data == "and") {
+	} else if (node->data == "=") {
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	bne.un %s%d\n",branchement,cpt);
+	} else if (node->data == "not") {
+	} else if (node->data == "and") {
 		
 		
 	} else if (node->data == "or") {
 		produce_code(g_node_nth_child(node, 0));		
 		produce_code(g_node_nth_child(node, 1));
 	}
-	br++;
 }
-
 
 
 void end_code()

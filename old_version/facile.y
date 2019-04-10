@@ -20,13 +20,14 @@ extern void begin_code();
 extern void end_code();
 extern void produce_code(GNode * node);
 int cpt = 0;
-char* branchement = "IL_";	
-
+char* branchement = "IL_";
 %}
 %error-verbose
 
 %token<number> TOK_NUMBER
 %token<string> TOK_IDENT
+%token TOK_PRINT
+%token TOK_READ
 %token TOK_AFFECT
 %token TOK_SEMICOLON
 %left TOK_ADD
@@ -35,8 +36,7 @@ char* branchement = "IL_";
 %left TOK_DIV
 %token TOK_OPEN_PARENTHESIS
 %token TOK_CLOSE_PARENTHESIS
-%token TOK_PRINT
-%token TOK_READ
+
 
 %token TOK_IF
 %token TOK_THEN
@@ -68,6 +68,7 @@ char* branchement = "IL_";
 %type<node> elseif
 %type<node> else
 %type<node> booleanexpr
+%type<node> end
 
 %union {
 	gulong number;
@@ -208,35 +209,35 @@ booleanexpr :
 |
 	expr TOK_SUPEQ expr
 	{
-		$$ = g_node_new("bge.s");
+		$$ = g_node_new(">=");
 		g_node_append($$, $1);	
 		g_node_append($$, $3);
 	}
 |
 	expr TOK_SUP expr
 	{
-		$$ = g_node_new("bgt.s");
+		$$ = g_node_new(">");
 		g_node_append($$, $1);	
 		g_node_append($$, $3);
 	}
 |
 	expr TOK_INF expr
 	{
-		$$ = g_node_new("blt.s");
+		$$ = g_node_new("<");
 		g_node_append($$, $1);	
 		g_node_append($$, $3);
 	}
 |
 	expr TOK_INFEQ expr
 	{
-		$$ = g_node_new("ble.s");
+		$$ = g_node_new("<=");
 		g_node_append($$, $1);	
 		g_node_append($$, $3);
 	}
 |
 	expr TOK_DIFF expr
 	{
-		$$ = g_node_new("bne.un.s");
+		$$ = g_node_new("#");
 		g_node_append($$, $1);	
 		g_node_append($$, $3);
 	}
@@ -276,30 +277,7 @@ booleanexpr :
 ;
 
 if : 
-	TOK_IF booleanexpr TOK_THEN code TOK_END
-	{
-		$$ = g_node_new("if");
-		g_node_append($$, $2);	
-		g_node_append($$, $4);
-	}
-|
-	TOK_IF booleanexpr TOK_THEN code else TOK_END
-	{
-		$$ = g_node_new("if");
-		g_node_append($$, $2);	
-		g_node_append($$, $4);
-		g_node_append($$, $5);
-	}	
-|
-	TOK_IF booleanexpr TOK_THEN code elseif TOK_END
-	{
-		$$ = g_node_new("if");
-		g_node_append($$, $2);	
-		g_node_append($$, $4);
-		g_node_append($$, $5);
-	}
-|
-	TOK_IF booleanexpr TOK_THEN code elseif else TOK_END
+	TOK_IF booleanexpr TOK_THEN code elseif else end
 	{
 		$$ = g_node_new("if");
 		g_node_append($$, $2);	
@@ -308,53 +286,22 @@ if :
 		g_node_append($$, $6);
 	}
 |
-	TOK_IF booleanexpr TOK_THEN code TOK_ENDIF
 	{
-		$$ = g_node_new("if");
-		g_node_append($$, $2);	
-		g_node_append($$, $4);
-	}
-|
-	TOK_IF booleanexpr TOK_THEN code else TOK_ENDIF
-	{
-		$$ = g_node_new("if");
-		g_node_append($$, $2);	
-		g_node_append($$, $4);
-		g_node_append($$, $5);
-	}	
-|
-	TOK_IF booleanexpr TOK_THEN code elseif TOK_ENDIF
-	{
-		$$ = g_node_new("if");
-		g_node_append($$, $2);	
-		g_node_append($$, $4);
-		g_node_append($$, $5);
-	}
-|
-	TOK_IF booleanexpr TOK_THEN code elseif else TOK_ENDIF
-	{
-		$$ = g_node_new("if");
-		g_node_append($$, $2);	
-		g_node_append($$, $4);
-		g_node_append($$, $5);
-		g_node_append($$, $6);
+		$$ = g_node_new("");
 	}
 ;
 
 elseif :
-	TOK_ELSEIF booleanexpr TOK_THEN code 
-	{
-		$$ = g_node_new("elseif");
-		g_node_append($$, $2);	
-		g_node_append($$, $4);
-	}
-|
 	TOK_ELSEIF booleanexpr TOK_THEN code elseif
 	{
 		$$ = g_node_new("elseif");
 		g_node_append($$, $2);	
 		g_node_append($$, $4);
 		g_node_append($$, $5);
+	}
+|
+	{
+		$$ = g_node_new("");
 	}
 ;
 
@@ -364,6 +311,24 @@ else :
 		$$ = g_node_new("else");
 		g_node_append($$, $2);	
 	}
+|
+	{
+		$$ = g_node_new("");
+	}
+;
+
+end :
+	
+	TOK_ENDIF
+	{
+		$$ = g_node_new("endif");
+	}
+|
+	TOK_END
+	{
+		$$ = g_node_new("end");
+	}	
+	
 ;
 
 %%
@@ -434,37 +399,57 @@ void produce_code(GNode * node)
 		fprintf(stream, "	call string class [mscorlib]System.Console::ReadLine()\n");
 		fprintf(stream, "	call int32 int32::Parse(string)\n");
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
-	} else if (node->data == "if") {//TOK_IF booleanexpr TOK_THEN code TOK_END
+	} else if (node->data == "if") { // TOK_IF booleanexpr TOK_THEN code elseif else end
 
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1)); 
 		fprintf(stream, "%s%d:\n",branchement,cpt);
 		cpt+=1;
 
+		/*int cpt = br;
+		fprintf(stream, "%sIF%d :", IL, cpt); // IF
+		produce_code(g_node_nth_child(node, 0));
+		fprintf(stream, " %s%d\n", IL, cpt);
+			
+		produce_code(g_node_nth_child(node, 1));
+		
+		fprintf(stream, "%sELSEIF%d :", IL, cpt); // ELSEIF
+		produce_code(g_node_nth_child(node, 2));
+		fprintf(stream, "	br %s%d\n", IL , cpt);
+		
+		fprintf(stream, "%sELSE%d :", IL, cpt); // ELSE
+		produce_code(g_node_nth_child(node, 3)); 
+		
+		produce_code(g_node_nth_child(node, 4)); // END
+		fprintf(stream, "%sIF%d : \n", IL , cpt);*/
 	} else if (node->data == "elseif") {
 	} else if (node->data == "else") {
+		produce_code(g_node_nth_child(node, 0));
 	} else if (node->data == "false") {
 		fprintf(stream, "	ldc.i4\t0\n");
 	} else if (node->data == "true") {
 		fprintf(stream, "	ldc.i4\t1\n");
-	} else if (node->data == "bge.s") {
-	} else if (node->data == "bgt.s") {
-	} else if (node->data == "blt.s") {
-	} else if (node->data == "ble.s") {
-	} else if (node->data == "bne.un.s") {
+	} else if (node->data == "#") {
+	} else if (node->data == "<=") {
+	} else if (node->data == ">=") {
+	} else if (node->data == "<") {
+	} else if (node->data == ">") {
 	} else if (node->data == "=") {
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1));
 		fprintf(stream, "	bne.un %s%d\n",branchement,cpt);
 	} else if (node->data == "not") {
+		produce_code(g_node_nth_child(node, 0));
+		fprintf(stream, "	brtrue.s\n");
 	} else if (node->data == "and") {
-		
-		
+		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 1));
 	} else if (node->data == "or") {
 		produce_code(g_node_nth_child(node, 0));		
 		produce_code(g_node_nth_child(node, 1));
 	}
 }
+
 
 
 void end_code()
