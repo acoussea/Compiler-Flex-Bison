@@ -435,45 +435,118 @@ void produce_code(GNode * node)
 		fprintf(stream, "	call int32 int32::Parse(string)\n");
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
 	} else if (node->data == "if") {//TOK_IF booleanexpr TOK_THEN code TOK_END
-
+		
 		produce_code(g_node_nth_child(node, 0));
-		produce_code(g_node_nth_child(node, 1)); 
 		fprintf(stream, "%s%d:\n",branchement,cpt);
-		cpt+=1;
+		produce_code(g_node_nth_child(node, 1)); 
+		fprintf(stream, "%s%d:\n",branchement,cpt+1);
+		cpt+=2;
 
 	} else if (node->data == "elseif") {
 	} else if (node->data == "else") {
 	} else if (node->data == "false") {
 		fprintf(stream, "	ldc.i4\t0\n");
+		fprintf(stream, "	brfalse %s%d\n",branchement,cpt+1);
 	} else if (node->data == "true") {
 		fprintf(stream, "	ldc.i4\t1\n");
+		fprintf(stream, "	brfalse %s%d\n",branchement,cpt+1);
 	} else if (node->data == "<") {
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1));
-		fprintf(stream, "	bge %s%d\n",branchement,cpt);
+		fprintf(stream, "	bge %s%d\n",branchement,cpt+1);
 	} else if (node->data == "<=") {
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1));
-		fprintf(stream, "	bgt %s%d\n",branchement,cpt);
+		fprintf(stream, "	bgt %s%d\n",branchement,cpt+1);
 	} else if (node->data == ">") {
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1));
-		fprintf(stream, "	ble %s%d\n",branchement,cpt);
+		fprintf(stream, "	ble %s%d\n",branchement,cpt+1);
 	} else if (node->data == ">=") {
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1));
-		fprintf(stream, "	blt %s%d\n",branchement,cpt);
+		fprintf(stream, "	blt %s%d\n",branchement,cpt+1);
 	} else if (node->data == "#") {
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1));
-		fprintf(stream, "	beq %s%d\n",branchement,cpt);
+		fprintf(stream, "	beq %s%d\n",branchement,cpt+1);
 	} else if (node->data == "=") {
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1));
-		fprintf(stream, "	bne.un %s%d\n",branchement,cpt);
+		fprintf(stream, "	bne.un %s%d\n",branchement,cpt+1);
 	} else if (node->data == "not") {
+		if(g_node_nth_child(node,0)->data=="=")
+		{
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
+			fprintf(stream, "	beq %s%d\n",branchement,cpt+1);
+		}else if(g_node_nth_child(node,0)->data=="#")
+		{
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
+			fprintf(stream, "	bne.un %s%d\n",branchement,cpt+1);
+		}else if(g_node_nth_child(node,0)->data=="<")
+		{
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
+			fprintf(stream, "	blt %s%d\n",branchement,cpt+1);
+		}else if(g_node_nth_child(node,0)->data=="<=")
+		{
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
+			fprintf(stream, "	ble %s%d\n",branchement,cpt+1);
+		}else if(g_node_nth_child(node,0)->data==">")
+		{
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
+			fprintf(stream, "	bgt %s%d\n",branchement,cpt+1);
+		}else if(g_node_nth_child(node,0)->data==">=")
+		{
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
+			fprintf(stream, "	bge %s%d\n",branchement,cpt+1);
+		}
 	} else if (node->data == "and") {
+		produce_code(g_node_nth_child(node,0));
+		produce_code(g_node_nth_child(node,1));
 	} else if (node->data == "or") {
+		if(g_node_nth_child(node,0)->data=="=")
+		{
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
+			fprintf(stream, "	beq %s%d\n",branchement,cpt);
+			produce_code(g_node_nth_child(node,1));
+		}else if(g_node_nth_child(node,0)->data=="#")
+		{
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
+			fprintf(stream, "	bne.un %s%d\n",branchement,cpt);
+			produce_code(g_node_nth_child(node,1));
+		}else if(g_node_nth_child(node,0)->data=="<")
+		{
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
+			fprintf(stream, "	blt %s%d\n",branchement,cpt);
+			produce_code(g_node_nth_child(node,1));
+		}else if(g_node_nth_child(node,0)->data=="<=")
+		{
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
+			fprintf(stream, "	ble %s%d\n",branchement,cpt);
+			produce_code(g_node_nth_child(node,1));
+		}else if(g_node_nth_child(node,0)->data==">")
+		{
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
+			fprintf(stream, "	bgt %s%d\n",branchement,cpt);
+			produce_code(g_node_nth_child(node,1));
+		}else if(g_node_nth_child(node,0)->data==">=")
+		{
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
+			fprintf(stream, "	bge %s%d\n",branchement,cpt);
+			produce_code(g_node_nth_child(node,1));
+		}
 	}
 }
 
