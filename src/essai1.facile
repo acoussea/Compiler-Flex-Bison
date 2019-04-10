@@ -2,5 +2,6 @@ read a;
 b:= 678 + 54 * 67;
 c := 54 - 56 - 76;
 d := a*2+56;
+if b=c then print a; else elseif end
 print d;
 

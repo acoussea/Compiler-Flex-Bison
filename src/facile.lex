@@ -43,7 +43,7 @@ read	return TOK_READ;
 
 "then"	return TOK_THEN;
 
-"elif"	return TOK_ELSEIF;
+"elseif" return TOK_ELSEIF;
 
 "else"	return TOK_ELSE;
 
