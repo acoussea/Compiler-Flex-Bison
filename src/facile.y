@@ -573,6 +573,13 @@ void produce_code(GNode * node)
 			fprintf(stream, "	bge %s%d\n",branchement,cpt);
 			produce_code(g_node_nth_child(node,1));
 		}
+	}else if(node->data =="while"){
+		fprintf(stream, "%s%d:\n",branchement,cpt);
+		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	br %s%d\n",branchement,cpt);
+		cpt+=1;
+		fprintf(stream, "%s%d:\n",branchement,cpt);
 	}
 }
 

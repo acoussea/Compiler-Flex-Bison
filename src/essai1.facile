@@ -2,14 +2,13 @@ read a;
 b:= 678 + 54 * 67;
 c := 54 - 56 - 76;
 d := a*2+56;
-e := 3;
-f := 3;
+e := 10;
+f := 1;
 
-if a = e then 
-	print e; 
-else 
-	print d; 
-endif
+while a # e do
+	print g;
+	a := a+1;
+end
 
 print d;
 

@@ -6,13 +6,12 @@ public class HelloWorld
     static public void Main ()
     {
 	//bool c = true;
-	int a = 1;
+	int a = 3;
 	int b = 3;
-	int c = 1;
-	if((a==b) || (c==a)){
-        	Console.WriteLine(1);
-	} else {
-		Console.WriteLine(0);
+	while(a==b){
+		while(b==a){
+	        	Console.WriteLine(1);
+		}
 	}
     }
 }
