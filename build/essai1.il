@@ -35,6 +35,8 @@
 IL_0:
 	ldloc	4
 	call void class [mscorlib]System.Console::WriteLine(int32)
+	ldloc	4
+	call void class [mscorlib]System.Console::WriteLine(int32)
 br IL_2
 IL_1:
 	ldloc	3

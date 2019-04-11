@@ -4,6 +4,12 @@ c := 54 - 56 - 76;
 d := a*2+56;
 e := 3;
 f := 3;
-if not a = e and e = f then print e; end
+
+if a = e then 
+	print e; 
+else 
+	print d; 
+endif
+
 print d;
 

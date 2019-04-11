@@ -23,7 +23,7 @@ read	return TOK_READ;
 
 "then"	return TOK_THEN;
 
-"elif"	return TOK_ELSEIF;
+"elseif" return TOK_ELSEIF;
 
 "else"	return TOK_ELSE;
 
@@ -52,6 +52,12 @@ read	return TOK_READ;
 "and"	return TOK_AND;
 
 "or" 	return TOK_OR;
+
+"while" return TOK_WHILE;
+
+"do"	return TOK_DO;
+
+"endwhile" return TOK_ENDWHILE;
 
 [a-zA-Z_][a-zA-Z0-9_]* {
 	yylval.string = yytext;

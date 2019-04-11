@@ -30,8 +30,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-#ifndef YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_COMPILER_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
-# define YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_COMPILER_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
+#ifndef YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
+# define YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -73,7 +73,10 @@ extern int yydebug;
     TOK_INF = 283,
     TOK_INFEQ = 284,
     TOK_DIFF = 285,
-    TOK_EQ = 286
+    TOK_EQ = 286,
+    TOK_WHILE = 287,
+    TOK_DO = 288,
+    TOK_ENDWHILE = 289
   };
 #endif
 
@@ -82,13 +85,13 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 72 "facile.y" /* yacc.c:1909  */
+#line 76 "facile.y" /* yacc.c:1909  */
 
 	gulong number;
 	char *string;
 	GNode * node;
 
-#line 92 "/media/Qi/acoussea/Cours/L3/compilation/Compiler/Compiler-Flex-Bison/build/facile.y.h" /* yacc.c:1909  */
+#line 95 "/media/Qi/acoussea/Cours/L3/compilation/Compiler-Flex-Bison/build/facile.y.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -101,4 +104,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_COMPILER_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED  */
+#endif /* !YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED  */
