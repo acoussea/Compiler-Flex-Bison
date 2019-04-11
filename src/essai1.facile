@@ -2,13 +2,21 @@ read a;
 b:= 678 + 54 * 67;
 c := 54 - 56 - 76;
 d := a*2+56;
-e := 10;
-f := 1;
-
-while a # e do
+e := 3;
+f := 42;
+j := 10;
+k := 97;
+g := 112;
+if a = e then 
+	print e; 
+elseif a = k then
+	print k;
+endif
+elseif a = g then
 	print g;
-	a := a+1;
+endif 
+else 
+	print f;
 end
-
 print d;
 

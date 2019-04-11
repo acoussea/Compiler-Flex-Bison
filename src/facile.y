@@ -20,6 +20,7 @@ extern void begin_code();
 extern void end_code();
 extern void produce_code(GNode * node);
 int cpt = 0;
+int cptEndIf = 0;
 char* branchement = "IL_";	
 
 %}
@@ -282,30 +283,7 @@ booleanexpr :
 	}
 ;
 
-if : 
-	TOK_IF booleanexpr TOK_THEN code TOK_END
-	{
-		$$ = g_node_new("if");
-		g_node_append($$, $2);	
-		g_node_append($$, $4);
-	}
-|
-	TOK_IF booleanexpr TOK_THEN code else TOK_END
-	{
-		$$ = g_node_new("if");
-		g_node_append($$, $2);	
-		g_node_append($$, $4);
-		g_node_append($$, $5);
-	}	
-|
-	TOK_IF booleanexpr TOK_THEN code elseif TOK_END
-	{
-		$$ = g_node_new("if");
-		g_node_append($$, $2);	
-		g_node_append($$, $4);
-		g_node_append($$, $5);
-	}
-|
+if : 	
 	TOK_IF booleanexpr TOK_THEN code elseif else TOK_END
 	{
 		$$ = g_node_new("if");
@@ -313,6 +291,31 @@ if :
 		g_node_append($$, $4);
 		g_node_append($$, $5);
 		g_node_append($$, $6);
+	}
+|
+	TOK_IF booleanexpr TOK_THEN code else TOK_END
+	{
+		
+		$$ = g_node_new("if");
+		g_node_append($$, $2);	
+		g_node_append($$, $4);
+		g_node_append($$, $5);
+	}
+|
+	TOK_IF booleanexpr TOK_THEN code TOK_END
+	{
+		$$ = g_node_new("if");
+		g_node_append($$, $2);	
+		g_node_append($$, $4);
+	}
+	
+|
+	TOK_IF booleanexpr TOK_THEN code elseif TOK_END
+	{
+		$$ = g_node_new("if");
+		g_node_append($$, $2);	
+		g_node_append($$, $4);
+		g_node_append($$, $5);
 	}
 |
 	TOK_IF booleanexpr TOK_THEN code TOK_ENDIF
@@ -349,20 +352,21 @@ if :
 ;
 
 elseif :
-	TOK_ELSEIF booleanexpr TOK_THEN code 
+
+	TOK_ELSEIF booleanexpr TOK_THEN code TOK_ENDIF
 	{
 		$$ = g_node_new("elseif");
 		g_node_append($$, $2);	
 		g_node_append($$, $4);
 	}
 |
-	TOK_ELSEIF booleanexpr TOK_THEN code elseif
+	TOK_ELSEIF booleanexpr TOK_THEN code TOK_ENDIF elseif 
 	{
 		$$ = g_node_new("elseif");
 		g_node_append($$, $2);	
 		g_node_append($$, $4);
-		g_node_append($$, $5);
-	}
+		g_node_append($$, $6);
+	}	
 ;
 
 else :
@@ -455,19 +459,37 @@ void produce_code(GNode * node)
 		fprintf(stream, "	call string class [mscorlib]System.Console::ReadLine()\n");
 		fprintf(stream, "	call int32 int32::Parse(string)\n");
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
-	} else if (node->data == "if") {//TOK_IF booleanexpr TOK_THEN code else TOK_END
-
+	} else if (node->data == "if") {//TOK_IF booleanexpr TOK_THEN code elseif else TOK_END
 		produce_code(g_node_nth_child(node, 0));
 		fprintf(stream, "%s%d:\n",branchement,cpt);
-		produce_code(g_node_nth_child(node, 1)); 
 		produce_code(g_node_nth_child(node, 1));
-		fprintf(stream, "br %s%d\n",branchement,cpt+2);
-		fprintf(stream, "%s%d:\n",branchement,cpt+1);
-		produce_code(g_node_nth_child(node, 2));
-		fprintf(stream, "%s%d:\n",branchement,cpt+2);
-		cpt+=2;
+		fprintf(stream, "	br %sendif%d\n",branchement,cptEndIf);
+		cpt++;
+		fprintf(stream, "%s%d:\n",branchement,cpt);
+		if(g_node_n_children(node)>=3) {			
+			cpt++;	
+			produce_code(g_node_nth_child(node, 2));
+			if(g_node_n_children(node)>=4) {		 
+			fprintf(stream, "%s%d:\n",branchement,cpt);
+			produce_code(g_node_nth_child(node, 3));
+			}
+		}	
+		
+		fprintf(stream, "%sendif%d:\n",branchement,cptEndIf);
+		cptEndIf++;
 
-	} else if (node->data == "elseif") {
+	} else if (node->data == "elseif") { // TOK_ELSEIF booleanexpr TOK_THEN code endif elseif 
+		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	br %sendif%d\n",branchement,cptEndIf);
+		cpt++;
+		fprintf(stream, "%s%d:\n",branchement,cpt);
+		if(g_node_n_children(node)==3) {
+			produce_code(g_node_nth_child(node, 2));
+			cpt++;	
+		}	
+
+		
 	} else if (node->data == "else") {
 		produce_code(g_node_nth_child(node, 0)); 
 	} else if (node->data == "false") {

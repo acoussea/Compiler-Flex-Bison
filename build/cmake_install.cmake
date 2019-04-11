@@ -1,4 +1,4 @@
-# Install script for directory: /media/Qi/acoussea/Cours/L3/compilation/Compiler-Flex-Bison/src
+# Install script for directory: /Utilisateurs/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/media/Qi/acoussea/Cours/L3/compilation/Compiler-Flex-Bison/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Utilisateurs/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
