@@ -58,9 +58,28 @@ IL_3:
 	br IL_endif0
 IL_4:
 IL_5:
+	br IL_7
+IL_6:
+	ldloc	0
+	ldloc	5
+	bge IL_9
+IL_8:
 	ldloc	5
 	call void class [mscorlib]System.Console::WriteLine(int32)
+	br IL_endif0
+IL_9:
 IL_endif0:
+	ldloc	0
+	ldc.i4	1
+	add
+	stloc	0
+IL_7:
+	ldloc	0
+	ldloc	5
+	beq IL_10
+	br IL_6
+IL_10:
+IL_endif1:
 	ldloc	3
 	call void class [mscorlib]System.Console::WriteLine(int32)
 	ret

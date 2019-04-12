@@ -1,6 +1,6 @@
-#line 2 "/Utilisateurs/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/facile.lex.c"
+#line 2 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.lex.c"
 
-#line 4 "/Utilisateurs/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/facile.lex.c"
+#line 4 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.lex.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -520,7 +520,7 @@ char *yytext;
 #include <glib.h>
 #include "facile.y.h"
 
-#line 524 "/Utilisateurs/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/facile.lex.c"
+#line 524 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.lex.c"
 
 #define INITIAL 0
 
@@ -741,7 +741,7 @@ YY_DECL
 #line 10 "facile.lex"
 
 
-#line 745 "/Utilisateurs/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/facile.lex.c"
+#line 745 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.lex.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -980,7 +980,7 @@ YY_RULE_SETUP
 #line 88 "facile.lex"
 ECHO;
 	YY_BREAK
-#line 984 "/Utilisateurs/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/facile.lex.c"
+#line 984 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.lex.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 

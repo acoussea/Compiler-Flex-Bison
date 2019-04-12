@@ -16,7 +16,12 @@ elseif a = g then
 	print g;
 endif 
 else 
-	print f;
+	while a # f do
+		if a < f then
+			print f;
+		end
+		a := a + 1;
+	end
 end
 print d;
 

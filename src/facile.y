@@ -596,12 +596,22 @@ void produce_code(GNode * node)
 			produce_code(g_node_nth_child(node,1));
 		}
 	}else if(node->data =="while"){
-		fprintf(stream, "%s%d:\n",branchement,cpt);
+		/*fprintf(stream, "%s%d:\n",branchement,cpt);
 		produce_code(g_node_nth_child(node, 0));
 		produce_code(g_node_nth_child(node, 1));
 		fprintf(stream, "	br %s%d\n",branchement,cpt);
 		cpt+=1;
-		fprintf(stream, "%s%d:\n",branchement,cpt);
+		fprintf(stream, "%s%d:\n",branchement,cpt);*/
+		int cptWhile = cpt+1;
+		int cpt2 = cpt+2;
+		cpt+=3;
+		fprintf(stream, "	br %s%d\n",branchement,cpt2);
+		fprintf(stream, "%s%d:\n",branchement,cptWhile);
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "%s%d:\n",branchement,cpt2);
+		produce_code(g_node_nth_child(node, 0));
+		fprintf(stream, "	br %s%d\n",branchement,cptWhile);
+		fprintf(stream, "%s%d:\n",branchement,cpt+1);
 	}
 }
 
