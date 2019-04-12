@@ -18,6 +18,15 @@ print	return TOK_PRINT;
 
 read	return TOK_READ;
 
+"break" return TOK_BREAK;
+
+"foreach" return TOK_FOREACH;
+
+".." return TOK_PTPT;
+
+"in" return TOK_IN;
+
+"endforeach" return TOK_ENDFOREACH;
 
 "if"	return TOK_IF;
 

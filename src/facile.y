@@ -62,6 +62,13 @@ char* branchement = "IL_";
 %token TOK_DO;
 %token TOK_ENDWHILE;
 
+%token TOK_ENDFOREACH;
+%token TOK_FOREACH;
+%token TOK_PTPT;
+
+%token TOK_BREAK;
+
+%token TOK_IN;
 %type<node> code
 %type<node> expr
 %type<node> instruction
@@ -74,6 +81,7 @@ char* branchement = "IL_";
 %type<node> else
 %type<node> booleanexpr
 %type<node> while
+%type<node> foreach
 
 %union {
 	gulong number;
@@ -612,6 +620,9 @@ void produce_code(GNode * node)
 		produce_code(g_node_nth_child(node, 0));
 		fprintf(stream, "	br %s%d\n",branchement,cptWhile);
 		fprintf(stream, "%s%d:\n",branchement,cpt+1);
+	}else if(node->data =="foreach"){
+	}else if(node->data =="break"){
+		
 	}
 }
 

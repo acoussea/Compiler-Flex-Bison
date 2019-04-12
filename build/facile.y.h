@@ -76,7 +76,12 @@ extern int yydebug;
     TOK_EQ = 286,
     TOK_WHILE = 287,
     TOK_DO = 288,
-    TOK_ENDWHILE = 289
+    TOK_ENDWHILE = 289,
+    TOK_ENDFOREACH = 290,
+    TOK_FOREACH = 291,
+    TOK_PTPT = 292,
+    TOK_BREAK = 293,
+    TOK_IN = 294
   };
 #endif
 
@@ -85,13 +90,13 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 78 "facile.y" /* yacc.c:1909  */
+#line 85 "facile.y" /* yacc.c:1909  */
 
 	gulong number;
 	char *string;
 	GNode * node;
 
-#line 95 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.h" /* yacc.c:1909  */
+#line 100 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
