@@ -126,6 +126,8 @@ instruction:
 	else
 |
 	while
+|
+	foreach
 ;
 
 ident:
@@ -399,6 +401,26 @@ while :
 	}
 ;
 
+foreach :
+	TOK_FOREACH ident TOK_IN expr TOK_PTPT expr TOK_DO code TOK_END
+	{
+		$$ = g_node_new("foreach");
+		g_node_append($$, $2);
+		g_node_append($$, $4);
+		g_node_append($$, $6);
+		g_node_append($$, $8);
+	}
+|
+	TOK_FOREACH ident TOK_IN expr TOK_PTPT expr TOK_DO code TOK_ENDFOREACH
+	{
+		$$ = g_node_new("foreach");
+		g_node_append($$, $2);
+		g_node_append($$, $4);
+		g_node_append($$, $6);
+		g_node_append($$, $8);
+	}
+;
+
 %%
 
 #include <stdlib.h>
@@ -620,7 +642,22 @@ void produce_code(GNode * node)
 		produce_code(g_node_nth_child(node, 0));
 		fprintf(stream, "	br %s%d\n",branchement,cptWhile);
 		fprintf(stream, "%s%d:\n",branchement,cpt+1);
-	}else if(node->data =="foreach"){
+	}else if(node->data =="foreach"){ //foreach ident in expr .. expr do code end
+		int cptFE = cpt;
+		cpt+=1;
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
+
+		fprintf(stream, "%s%d:\n",branchement,cptFE);
+		produce_code(g_node_nth_child(node,3));
+		produce_code(g_node_nth_child(node,0));
+		fprintf(stream, "	ldc.i4\t1\n");
+		fprintf(stream, "	add\n");
+		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
+
+		produce_code(g_node_nth_child(node,0));
+		produce_code(g_node_nth_child(node,2));
+		fprintf(stream, "	ble %s%d\n",branchement,cptFE);
 	}else if(node->data =="break"){
 		
 	}

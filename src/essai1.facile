@@ -2,26 +2,10 @@ read a;
 b:= 678 + 54 * 67;
 c := 54 - 56 - 76;
 d := a*2+56;
-e := 3;
-f := 42;
-j := 10;
-k := 97;
-g := 112;
-if a = e then 
-	print e; 
-elseif a = k then
-	print k;
-endif
-elseif a = g then
-	print g;
-endif 
-else 
-	while a # f do
-		if a < f then
-			print f;
-		end
-		a := a + 1;
+foreach e in 1 .. 10 do
+	foreach f in 1 .. 2 do
+		print f;
 	end
+		
 end
 print d;
-

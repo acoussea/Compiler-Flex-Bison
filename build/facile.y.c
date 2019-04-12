@@ -169,7 +169,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 85 "facile.y" /* yacc.c:355  */
+#line 86 "facile.y" /* yacc.c:355  */
 
 	gulong number;
 	char *string;
@@ -434,16 +434,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  3
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   158
+#define YYLAST   205
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  40
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  14
+#define YYNNTS  15
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  47
+#define YYNRULES  50
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  90
+#define YYNSTATES  101
 
 /* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
    by yylex, with out-of-bounds checking.  */
@@ -493,11 +493,12 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    93,    93,   102,   109,   115,   117,   119,   121,   123,
-     125,   127,   131,   144,   153,   161,   171,   173,   179,   186,
-     193,   200,   207,   214,   219,   224,   231,   238,   245,   252,
-     259,   266,   272,   279,   286,   294,   303,   312,   320,   328,
-     335,   343,   351,   363,   370,   380,   388,   395
+       0,    94,    94,   103,   110,   116,   118,   120,   122,   124,
+     126,   128,   130,   134,   147,   156,   164,   174,   176,   182,
+     189,   196,   203,   210,   217,   222,   227,   234,   241,   248,
+     255,   262,   269,   275,   282,   289,   297,   306,   315,   323,
+     331,   338,   346,   354,   366,   373,   383,   391,   398,   405,
+     414
 };
 #endif
 
@@ -515,7 +516,7 @@ static const char *const yytname[] =
   "TOK_DO", "TOK_ENDWHILE", "TOK_ENDFOREACH", "TOK_FOREACH", "TOK_PTPT",
   "TOK_BREAK", "TOK_IN", "$accept", "program", "code", "instruction",
   "ident", "affectation", "print", "read", "expr", "booleanexpr", "if",
-  "elseif", "else", "while", YY_NULLPTR
+  "elseif", "else", "while", "foreach", YY_NULLPTR
 };
 #endif
 
@@ -531,10 +532,10 @@ static const yytype_uint16 yytoknum[] =
 };
 # endif
 
-#define YYPACT_NINF -67
+#define YYPACT_NINF -51
 
 #define yypact_value_is_default(Yystate) \
-  (!!((Yystate) == (-67)))
+  (!!((Yystate) == (-51)))
 
 #define YYTABLE_NINF -1
 
@@ -545,15 +546,17 @@ static const yytype_uint16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
-     -67,     9,    71,   -67,   -67,    28,    14,   118,   -67,   118,
-     118,   -67,    17,   -67,   -67,   -67,   -67,   -67,   -67,   -67,
-     -67,    28,   -67,   110,    39,   118,   -67,   -67,   118,   105,
-      10,    71,    40,   -17,    28,   135,   -67,    28,    28,    28,
-      28,   -67,    97,   -10,   -19,    28,    28,    28,    28,    28,
-      28,   -67,   118,   118,   -67,   -67,   142,   -67,    33,    72,
-      43,   -67,   -67,   146,   146,   146,   146,   146,   146,    59,
-      55,   -67,    79,     6,   -67,   -67,   -67,    49,    81,    69,
-     -67,   -67,   -67,   -67,   138,   -67,   -67,   -67,   -67,   -67
+     -51,     8,   109,   -51,   -51,    35,    21,   182,   -51,   182,
+     182,    21,   -51,    23,   -51,   -51,   -51,   -51,   -51,   -51,
+     -51,   -51,   -51,    35,   -51,   158,    26,   182,   -51,   -51,
+     182,   153,    56,   109,   122,   115,     6,    35,   107,   -51,
+      35,    35,    35,    35,   -51,   147,     5,   -22,    35,    35,
+      35,    35,    35,    35,   -51,   182,   182,   -51,   -51,    35,
+     181,   -51,    33,    39,    75,   -51,   -51,    85,    85,    85,
+      85,    85,    85,     1,    64,   -51,   117,    69,    54,   -51,
+     -51,   -51,   152,    36,    61,   -51,   -51,    35,   -51,   -51,
+      58,   -51,   -51,   -51,     3,   -51,   -51,   -51,    93,   -51,
+     -51
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -561,29 +564,31 @@ static const yytype_int16 yypact[] =
      means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       4,     0,     2,     1,    12,     0,     0,     0,     4,     0,
-       0,     3,     0,     5,     6,     7,     8,     9,    10,    11,
-      17,     0,    16,     0,     0,     0,    23,    24,     0,     0,
-       0,    45,     0,     0,     0,     0,    14,     0,     0,     0,
-       0,    15,     0,     0,    31,     0,     0,     0,     0,     0,
-       0,     4,     0,     0,     4,     4,     0,    22,    18,    19,
-      20,    21,    34,    25,    26,    27,    28,    29,    30,     0,
-      32,    33,     0,     0,    13,    37,    39,     9,    10,    43,
-      46,    47,    38,    41,     0,    36,    40,    44,    35,    42
+       4,     0,     2,     1,    13,     0,     0,     0,     4,     0,
+       0,     0,     3,     0,     5,     6,     7,     8,     9,    10,
+      11,    12,    18,     0,    17,     0,     0,     0,    24,    25,
+       0,     0,     0,    46,     0,     0,     0,     0,     0,    15,
+       0,     0,     0,     0,    16,     0,     0,    32,     0,     0,
+       0,     0,     0,     0,     4,     0,     0,     4,     4,     0,
+       0,    23,    19,    20,    21,    22,    35,    26,    27,    28,
+      29,    30,    31,     0,    33,    34,     0,     0,     0,    14,
+      38,    40,     9,    10,    44,    47,    48,     0,    39,    42,
+       0,    37,    41,    45,     0,    36,    43,     4,     0,    49,
+      50
 };
 
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -67,   -67,    -7,   -67,    -2,   -67,   -67,   -67,    12,     2,
-     -67,   -66,   -41,   -67
+     -51,   -51,    -7,   -51,    -2,   -51,   -51,   -51,    17,    -3,
+     -51,   -50,   -47,   -51,   -51
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     1,     2,    11,    22,    13,    14,    15,    29,    30,
-      16,    17,    18,    19
+      -1,     1,     2,    12,    24,    14,    15,    16,    31,    32,
+      17,    18,    19,    20,    21
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -591,42 +596,52 @@ static const yytype_int8 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_uint8 yytable[] =
 {
-      12,    31,    62,    77,    24,    52,    53,    52,    53,     3,
-       4,    32,    33,    87,    52,    53,    55,    23,     4,     5,
-       6,     7,    34,     8,     9,    80,    51,    43,    78,    12,
-      44,    20,     4,    35,    52,    53,    84,    42,    10,    21,
-      81,    38,    39,    40,    69,    41,    56,    72,    73,    58,
-      59,    60,    61,    40,    70,    71,    54,    63,    64,    65,
-      66,    67,    68,     4,    52,    53,     8,    12,    82,    83,
-      12,    12,     5,     6,     7,     4,     8,     9,    75,    76,
-      53,    39,    40,     4,     5,     6,     7,     9,     8,     9,
-       0,    10,     5,     6,     7,     0,     8,     9,     0,    79,
-      85,    86,     0,    10,    37,    38,    39,    40,     0,    57,
-       0,    10,    37,    38,    39,    40,    36,    37,    38,    39,
-      40,    20,     4,    45,    46,    47,    48,    49,    50,    25,
-       0,    45,    46,    47,    48,    49,    50,     0,     0,    26,
-      27,    28,    37,    38,    39,    40,     0,    57,    74,    37,
-      38,    39,    40,    37,    38,    39,    40,    88,    89
+      13,    33,    55,    56,    26,     4,    34,    35,     3,    36,
+      40,    41,    42,    43,     5,     6,     7,    66,     8,     9,
+      80,    81,    25,    82,    46,     4,    83,    47,    37,    55,
+      56,    13,    44,    10,    93,    90,    97,    11,    22,     4,
+      38,    41,    42,    43,    45,    59,    23,    73,    42,    43,
+      76,    77,    74,    75,    60,    91,    92,    62,    63,    64,
+      65,    40,    41,    42,    43,    67,    68,    69,    70,    71,
+      72,    13,    54,     4,    13,    13,    78,    95,    96,     9,
+      55,    56,     5,     6,     7,    43,     8,     9,    85,    56,
+      98,    87,    40,    41,    42,    43,    13,     4,     0,     0,
+       0,    10,     0,    86,    94,    11,     5,     6,     7,     0,
+       8,     9,    99,     4,    40,    41,    42,    43,     0,    61,
+       0,     4,     5,     6,     7,    10,     8,     9,   100,    11,
+       5,     6,     7,     0,     8,     9,     0,    84,    57,    55,
+      56,    10,     0,     0,     0,    11,    55,    56,    58,    10,
+       0,     0,     0,    11,    40,    41,    42,    43,     0,    61,
+      40,    41,    42,    43,    39,    40,    41,    42,    43,     8,
+       0,    88,    89,    48,    49,    50,    51,    52,    53,    48,
+      49,    50,    51,    52,    53,    22,     4,    79,    40,    41,
+      42,    43,     0,    27,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,    28,    29,    30
 };
 
 static const yytype_int8 yycheck[] =
 {
-       2,     8,    12,    69,     6,    24,    25,    24,    25,     0,
-       4,     9,    10,    79,    24,    25,    33,     5,     4,    13,
-      14,    15,     5,    17,    18,    19,    16,    25,    69,    31,
-      28,     3,     4,    21,    24,    25,    77,    25,    32,    11,
-      34,     8,     9,    10,    51,     6,    34,    54,    55,    37,
-      38,    39,    40,    10,    52,    53,    16,    45,    46,    47,
-      48,    49,    50,     4,    24,    25,    17,    69,    19,    20,
-      72,    73,    13,    14,    15,     4,    17,    18,    19,    20,
-      25,     9,    10,     4,    13,    14,    15,    18,    17,    18,
-      -1,    32,    13,    14,    15,    -1,    17,    18,    -1,    20,
-      19,    20,    -1,    32,     7,     8,     9,    10,    -1,    12,
-      -1,    32,     7,     8,     9,    10,     6,     7,     8,     9,
-      10,     3,     4,    26,    27,    28,    29,    30,    31,    11,
-      -1,    26,    27,    28,    29,    30,    31,    -1,    -1,    21,
-      22,    23,     7,     8,     9,    10,    -1,    12,     6,     7,
-       8,     9,    10,     7,     8,     9,    10,    19,    20
+       2,     8,    24,    25,     6,     4,     9,    10,     0,    11,
+       7,     8,     9,    10,    13,    14,    15,    12,    17,    18,
+      19,    20,     5,    73,    27,     4,    73,    30,     5,    24,
+      25,    33,     6,    32,    84,    82,    33,    36,     3,     4,
+      23,     8,     9,    10,    27,    39,    11,    54,     9,    10,
+      57,    58,    55,    56,    37,    19,    20,    40,    41,    42,
+      43,     7,     8,     9,    10,    48,    49,    50,    51,    52,
+      53,    73,    16,     4,    76,    77,    59,    19,    20,    18,
+      24,    25,    13,    14,    15,    10,    17,    18,    19,    25,
+      97,    37,     7,     8,     9,    10,    98,     4,    -1,    -1,
+      -1,    32,    -1,    34,    87,    36,    13,    14,    15,    -1,
+      17,    18,    19,     4,     7,     8,     9,    10,    -1,    12,
+      -1,     4,    13,    14,    15,    32,    17,    18,    35,    36,
+      13,    14,    15,    -1,    17,    18,    -1,    20,    16,    24,
+      25,    32,    -1,    -1,    -1,    36,    24,    25,    33,    32,
+      -1,    -1,    -1,    36,     7,     8,     9,    10,    -1,    12,
+       7,     8,     9,    10,     6,     7,     8,     9,    10,    17,
+      -1,    19,    20,    26,    27,    28,    29,    30,    31,    26,
+      27,    28,    29,    30,    31,     3,     4,     6,     7,     8,
+       9,    10,    -1,    11,    -1,    -1,    -1,    -1,    -1,    -1,
+      -1,    -1,    -1,    21,    22,    23
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
@@ -634,34 +649,38 @@ static const yytype_int8 yycheck[] =
 static const yytype_uint8 yystos[] =
 {
        0,    41,    42,     0,     4,    13,    14,    15,    17,    18,
-      32,    43,    44,    45,    46,    47,    50,    51,    52,    53,
-       3,    11,    44,    48,    44,    11,    21,    22,    23,    48,
-      49,    42,    49,    49,     5,    48,     6,     7,     8,     9,
-      10,     6,    48,    49,    49,    26,    27,    28,    29,    30,
-      31,    16,    24,    25,    16,    33,    48,    12,    48,    48,
-      48,    48,    12,    48,    48,    48,    48,    48,    48,    42,
-      49,    49,    42,    42,     6,    19,    20,    51,    52,    20,
-      19,    34,    19,    20,    52,    19,    20,    51,    19,    20
+      32,    36,    43,    44,    45,    46,    47,    50,    51,    52,
+      53,    54,     3,    11,    44,    48,    44,    11,    21,    22,
+      23,    48,    49,    42,    49,    49,    44,     5,    48,     6,
+       7,     8,     9,    10,     6,    48,    49,    49,    26,    27,
+      28,    29,    30,    31,    16,    24,    25,    16,    33,    39,
+      48,    12,    48,    48,    48,    48,    12,    48,    48,    48,
+      48,    48,    48,    42,    49,    49,    42,    42,    48,     6,
+      19,    20,    51,    52,    20,    19,    34,    37,    19,    20,
+      52,    19,    20,    51,    48,    19,    20,    33,    42,    19,
+      35
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
        0,    40,    41,    42,    42,    43,    43,    43,    43,    43,
-      43,    43,    44,    45,    46,    47,    48,    48,    48,    48,
-      48,    48,    48,    49,    49,    49,    49,    49,    49,    49,
-      49,    49,    49,    49,    49,    50,    50,    50,    50,    50,
-      50,    50,    50,    51,    51,    52,    53,    53
+      43,    43,    43,    44,    45,    46,    47,    48,    48,    48,
+      48,    48,    48,    48,    49,    49,    49,    49,    49,    49,
+      49,    49,    49,    49,    49,    49,    50,    50,    50,    50,
+      50,    50,    50,    50,    51,    51,    52,    53,    53,    54,
+      54
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
        0,     2,     1,     2,     0,     1,     1,     1,     1,     1,
-       1,     1,     1,     4,     3,     3,     1,     1,     3,     3,
-       3,     3,     3,     1,     1,     3,     3,     3,     3,     3,
-       3,     2,     3,     3,     3,     7,     6,     5,     6,     5,
-       6,     6,     7,     5,     6,     2,     5,     5
+       1,     1,     1,     1,     4,     3,     3,     1,     1,     3,
+       3,     3,     3,     3,     1,     1,     3,     3,     3,     3,
+       3,     3,     2,     3,     3,     3,     7,     6,     5,     6,
+       5,     6,     6,     7,     5,     6,     2,     5,     5,     9,
+       9
 };
 
 
@@ -1338,36 +1357,36 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 93 "facile.y" /* yacc.c:1646  */
+#line 94 "facile.y" /* yacc.c:1646  */
     {
 	begin_code();
 	produce_code((yyvsp[0].node));
 	end_code();
 	g_node_destroy((yyvsp[0].node));
 }
-#line 1349 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1368 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 103 "facile.y" /* yacc.c:1646  */
+#line 104 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("code");
 		g_node_append((yyval.node), (yyvsp[-1].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));		
 	}
-#line 1359 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1378 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 109 "facile.y" /* yacc.c:1646  */
+#line 110 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("");
 	}
-#line 1367 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1386 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 12:
-#line 132 "facile.y" /* yacc.c:1646  */
+  case 13:
+#line 135 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("ident");
 		gulong value = (gulong) g_hash_table_lookup(table, (yyvsp[0].string));
@@ -1377,210 +1396,210 @@ yyreduce:
 		}
 		g_node_append_data((yyval.node), (gpointer)value);
 	}
-#line 1381 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1400 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 13:
-#line 145 "facile.y" /* yacc.c:1646  */
+  case 14:
+#line 148 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("affect");
 		g_node_append((yyval.node), (yyvsp[-3].node));	
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1391 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1410 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 14:
-#line 154 "facile.y" /* yacc.c:1646  */
+  case 15:
+#line 157 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("print");
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1400 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1419 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 15:
-#line 162 "facile.y" /* yacc.c:1646  */
+  case 16:
+#line 165 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("read");
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1409 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1428 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 17:
-#line 174 "facile.y" /* yacc.c:1646  */
+  case 18:
+#line 177 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("number");
 		g_node_append_data((yyval.node), (gpointer)(yyvsp[0].number));
 	}
-#line 1418 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1437 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 18:
-#line 180 "facile.y" /* yacc.c:1646  */
+  case 19:
+#line 183 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("add");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1428 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1447 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 19:
-#line 187 "facile.y" /* yacc.c:1646  */
+  case 20:
+#line 190 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("sub");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1438 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1457 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 20:
-#line 194 "facile.y" /* yacc.c:1646  */
+  case 21:
+#line 197 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("mul");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1448 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1467 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 21:
-#line 201 "facile.y" /* yacc.c:1646  */
+  case 22:
+#line 204 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("div");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1458 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
-    break;
-
-  case 22:
-#line 208 "facile.y" /* yacc.c:1646  */
-    {
-		(yyval.node) = (yyvsp[-1].node);
-	}
-#line 1466 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1477 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 23:
-#line 215 "facile.y" /* yacc.c:1646  */
+#line 211 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("false");
+		(yyval.node) = (yyvsp[-1].node);
 	}
-#line 1474 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1485 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 24:
-#line 220 "facile.y" /* yacc.c:1646  */
+#line 218 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("true");
+		(yyval.node) = g_node_new("false");
 	}
-#line 1482 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1493 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 25:
-#line 225 "facile.y" /* yacc.c:1646  */
+#line 223 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("true");
+	}
+#line 1501 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
+  case 26:
+#line 228 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new(">=");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1492 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1511 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 26:
-#line 232 "facile.y" /* yacc.c:1646  */
+  case 27:
+#line 235 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new(">");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1502 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1521 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 27:
-#line 239 "facile.y" /* yacc.c:1646  */
+  case 28:
+#line 242 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("<");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1512 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1531 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 28:
-#line 246 "facile.y" /* yacc.c:1646  */
+  case 29:
+#line 249 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("<=");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1522 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1541 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 29:
-#line 253 "facile.y" /* yacc.c:1646  */
+  case 30:
+#line 256 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("#");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1532 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
-    break;
-
-  case 30:
-#line 260 "facile.y" /* yacc.c:1646  */
-    {
-		(yyval.node) = g_node_new("=");
-		g_node_append((yyval.node), (yyvsp[-2].node));	
-		g_node_append((yyval.node), (yyvsp[0].node));
-	}
-#line 1542 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
-    break;
-
-  case 31:
-#line 267 "facile.y" /* yacc.c:1646  */
-    {
-		(yyval.node) = g_node_new("not");
-		g_node_append((yyval.node), (yyvsp[0].node));
-	}
 #line 1551 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 32:
-#line 273 "facile.y" /* yacc.c:1646  */
+  case 31:
+#line 263 "facile.y" /* yacc.c:1646  */
     {
-		(yyval.node) = g_node_new("and");
+		(yyval.node) = g_node_new("=");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
 #line 1561 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
+  case 32:
+#line 270 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("not");
+		g_node_append((yyval.node), (yyvsp[0].node));
+	}
+#line 1570 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
   case 33:
-#line 280 "facile.y" /* yacc.c:1646  */
+#line 276 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("and");
+		g_node_append((yyval.node), (yyvsp[-2].node));	
+		g_node_append((yyval.node), (yyvsp[0].node));
+	}
+#line 1580 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
+  case 34:
+#line 283 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("or");
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1571 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1590 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 34:
-#line 287 "facile.y" /* yacc.c:1646  */
+  case 35:
+#line 290 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("booleanexpr");
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1580 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1599 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 35:
-#line 295 "facile.y" /* yacc.c:1646  */
+  case 36:
+#line 298 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("if");
 		g_node_append((yyval.node), (yyvsp[-5].node));	
@@ -1588,11 +1607,11 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1592 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1611 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 36:
-#line 304 "facile.y" /* yacc.c:1646  */
+  case 37:
+#line 307 "facile.y" /* yacc.c:1646  */
     {
 		
 		(yyval.node) = g_node_new("if");
@@ -1600,64 +1619,64 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1604 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
-    break;
-
-  case 37:
-#line 313 "facile.y" /* yacc.c:1646  */
-    {
-		(yyval.node) = g_node_new("if");
-		g_node_append((yyval.node), (yyvsp[-3].node));	
-		g_node_append((yyval.node), (yyvsp[-1].node));
-	}
-#line 1614 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1623 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 321 "facile.y" /* yacc.c:1646  */
-    {
-		(yyval.node) = g_node_new("if");
-		g_node_append((yyval.node), (yyvsp[-4].node));	
-		g_node_append((yyval.node), (yyvsp[-2].node));
-		g_node_append((yyval.node), (yyvsp[-1].node));
-	}
-#line 1625 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
-    break;
-
-  case 39:
-#line 329 "facile.y" /* yacc.c:1646  */
+#line 316 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("if");
 		g_node_append((yyval.node), (yyvsp[-3].node));	
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1635 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1633 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
+  case 39:
+#line 324 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("if");
+		g_node_append((yyval.node), (yyvsp[-4].node));	
+		g_node_append((yyval.node), (yyvsp[-2].node));
+		g_node_append((yyval.node), (yyvsp[-1].node));
+	}
+#line 1644 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 336 "facile.y" /* yacc.c:1646  */
+#line 332 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("if");
-		g_node_append((yyval.node), (yyvsp[-4].node));	
-		g_node_append((yyval.node), (yyvsp[-2].node));
+		g_node_append((yyval.node), (yyvsp[-3].node));	
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1646 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1654 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 41:
-#line 344 "facile.y" /* yacc.c:1646  */
+#line 339 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("if");
 		g_node_append((yyval.node), (yyvsp[-4].node));	
 		g_node_append((yyval.node), (yyvsp[-2].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1657 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1665 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 352 "facile.y" /* yacc.c:1646  */
+#line 347 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("if");
+		g_node_append((yyval.node), (yyvsp[-4].node));	
+		g_node_append((yyval.node), (yyvsp[-2].node));
+		g_node_append((yyval.node), (yyvsp[-1].node));
+	}
+#line 1676 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
+  case 43:
+#line 355 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("if");
 		g_node_append((yyval.node), (yyvsp[-5].node));	
@@ -1665,59 +1684,83 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1669 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1688 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 43:
-#line 364 "facile.y" /* yacc.c:1646  */
+  case 44:
+#line 367 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("elseif");
 		g_node_append((yyval.node), (yyvsp[-3].node));	
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1679 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1698 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 44:
-#line 371 "facile.y" /* yacc.c:1646  */
+  case 45:
+#line 374 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("elseif");
 		g_node_append((yyval.node), (yyvsp[-4].node));	
 		g_node_append((yyval.node), (yyvsp[-2].node));
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1690 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1709 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 45:
-#line 381 "facile.y" /* yacc.c:1646  */
+  case 46:
+#line 384 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("else");
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1699 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1718 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 46:
-#line 389 "facile.y" /* yacc.c:1646  */
+  case 47:
+#line 392 "facile.y" /* yacc.c:1646  */
     {
 		(yyval.node) = g_node_new("while");
 		g_node_append((yyval.node), (yyvsp[-3].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1709 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1728 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
-  case 47:
-#line 396 "facile.y" /* yacc.c:1646  */
+  case 48:
+#line 399 "facile.y" /* yacc.c:1646  */
     {
 		
 	}
-#line 1717 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1736 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
+  case 49:
+#line 406 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("foreach");
+		g_node_append((yyval.node), (yyvsp[-7].node));
+		g_node_append((yyval.node), (yyvsp[-5].node));
+		g_node_append((yyval.node), (yyvsp[-3].node));
+		g_node_append((yyval.node), (yyvsp[-1].node));
+	}
+#line 1748 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+    break;
+
+  case 50:
+#line 415 "facile.y" /* yacc.c:1646  */
+    {
+		(yyval.node) = g_node_new("foreach");
+		g_node_append((yyval.node), (yyvsp[-7].node));
+		g_node_append((yyval.node), (yyvsp[-5].node));
+		g_node_append((yyval.node), (yyvsp[-3].node));
+		g_node_append((yyval.node), (yyvsp[-1].node));
+	}
+#line 1760 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
 
-#line 1721 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1764 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1945,7 +1988,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 401 "facile.y" /* yacc.c:1906  */
+#line 424 "facile.y" /* yacc.c:1906  */
 
 
 #include <stdlib.h>
@@ -2167,7 +2210,22 @@ void produce_code(GNode * node)
 		produce_code(g_node_nth_child(node, 0));
 		fprintf(stream, "	br %s%d\n",branchement,cptWhile);
 		fprintf(stream, "%s%d:\n",branchement,cpt+1);
-	}else if(node->data =="foreach"){
+	}else if(node->data =="foreach"){ //foreach ident in expr .. expr do code end
+		int cptFE = cpt;
+		cpt+=1;
+		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
+
+		fprintf(stream, "%s%d:\n",branchement,cptFE);
+		produce_code(g_node_nth_child(node,3));
+		produce_code(g_node_nth_child(node,0));
+		fprintf(stream, "	ldc.i4\t1\n");
+		fprintf(stream, "	add\n");
+		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
+
+		produce_code(g_node_nth_child(node,0));
+		produce_code(g_node_nth_child(node,2));
+		fprintf(stream, "	ble %s%d\n",branchement,cptFE);
 	}else if(node->data =="break"){
 		
 	}

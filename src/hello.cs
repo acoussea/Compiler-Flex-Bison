@@ -7,11 +7,9 @@ public class HelloWorld
     {
 	//bool c = true;
 	int a = 3;
-	int b = 3;
-	while(a==b){
-		while(b==a){
-	        	Console.WriteLine(1);
-		}
+	for(int i = 0;i<a;i++){
+		Console.WriteLine(i);
+
 	}
     }
 }
