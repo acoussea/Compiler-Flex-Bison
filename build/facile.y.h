@@ -90,7 +90,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 86 "facile.y" /* yacc.c:1909  */
+#line 87 "facile.y" /* yacc.c:1909  */
 
 	gulong number;
 	char *string;

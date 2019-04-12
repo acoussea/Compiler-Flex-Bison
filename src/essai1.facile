@@ -2,10 +2,10 @@ read a;
 b:= 678 + 54 * 67;
 c := 54 - 56 - 76;
 d := a*2+56;
+
 foreach e in 1 .. 10 do
-	foreach f in 1 .. 2 do
-		print f;
-	end
-		
+	if e = 8 then break end
+	print e;
 end
+
 print d;

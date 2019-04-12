@@ -82,6 +82,7 @@ char* branchement = "IL_";
 %type<node> booleanexpr
 %type<node> while
 %type<node> foreach
+%type<node> break
 
 %union {
 	gulong number;
@@ -128,6 +129,8 @@ instruction:
 	while
 |
 	foreach
+|
+	break
 ;
 
 ident:
@@ -421,6 +424,12 @@ foreach :
 	}
 ;
 
+break : 
+	TOK_BREAK
+	{
+		$$ = g_node_new("break");
+	}
+;
 %%
 
 #include <stdlib.h>
@@ -658,8 +667,10 @@ void produce_code(GNode * node)
 		produce_code(g_node_nth_child(node,0));
 		produce_code(g_node_nth_child(node,2));
 		fprintf(stream, "	ble %s%d\n",branchement,cptFE);
+		fprintf(stream, "%s%d:\n",branchement,cpt+1);
 	}else if(node->data =="break"){
-		
+		fprintf(stream, "	br %s%d\n",branchement,cpt+2);
+	}else if(node->data =="continue"){
 	}
 }
 

@@ -3,7 +3,7 @@
 {
 	.entrypoint
 	.maxstack 10
-	.locals init (int32, int32, int32, int32, int32, int32)
+	.locals init (int32, int32, int32, int32, int32)
 	call string class [mscorlib]System.Console::ReadLine()
 	call int32 int32::Parse(string)
 	stloc	0
@@ -29,19 +29,15 @@
 	stloc	4
 IL_0:
 	ldloc	4
-	call void class [mscorlib]System.Console::WriteLine(int32)
-	ldc.i4	1
-	stloc	5
+	ldc.i4	8
+	bne.un IL_2
 IL_1:
-	ldloc	5
+	br IL_3
+	br IL_endif0
+IL_2:
+IL_endif0:
+	ldloc	4
 	call void class [mscorlib]System.Console::WriteLine(int32)
-	ldloc	5
-	ldc.i4	1
-	add
-	stloc	5
-	ldloc	5
-	ldc.i4	10
-	ble IL_1
 	ldloc	4
 	ldc.i4	1
 	add
@@ -49,6 +45,7 @@ IL_1:
 	ldloc	4
 	ldc.i4	10
 	ble IL_0
+IL_3:
 	ldloc	3
 	call void class [mscorlib]System.Console::WriteLine(int32)
 	ret
