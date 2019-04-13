@@ -499,7 +499,7 @@ void produce_code(GNode * node)
 		fprintf(stream, "	call string class [mscorlib]System.Console::ReadLine()\n");
 		fprintf(stream, "	call int32 int32::Parse(string)\n");
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
-	} else if (node->data == "if") {
+	} else if (node->data == "if") { //if booleanexpr then code elseif else end 
 		cptEndIf++; // Incrémentation du compteur de if
 		int tmpCpt = cptEndIf;
 
@@ -522,14 +522,14 @@ void produce_code(GNode * node)
 		fprintf(stream, "%sendif%d:\n",branchement,tmpCpt); // branchement fin du if
 
 
-	} else if (node->data == "elseif") { 
+	} else if (node->data == "elseif") { //elseif booleanexpr then code endif elseif
 		produce_code(g_node_nth_child(node, 0)); // Production du code l'expression booléenne 
-		produce_code(g_node_nth_child(node, 1)); //
-		fprintf(stream, "	br %sendif%d\n",branchement,cptEndIf);
+		produce_code(g_node_nth_child(node, 1)); // Production du code
+		fprintf(stream, "	br %sendif%d\n",branchement,cptEndIf); // Branchement vers la fin du if
 		cpt++;
-		fprintf(stream, "%s%d:\n",branchement,cpt);
-		if(g_node_n_children(node)==3) {
-			produce_code(g_node_nth_child(node, 2));
+		fprintf(stream, "%s%d:\n",branchement,cpt); 
+		if(g_node_n_children(node)==3) { // Si le elseif est suivi d'un autre elseif on continue le traitement
+			produce_code(g_node_nth_child(node, 2)); // Production du elseif
 			cpt++;	
 		}	
 	} else if (node->data == "else") {
