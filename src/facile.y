@@ -21,6 +21,7 @@ extern void end_code();
 extern void produce_code(GNode * node);
 int cpt = 0;
 int cptEndIf = 0;
+int cptWhile = 0;
 char* branchement = "IL_";	
 
 %}
@@ -498,35 +499,39 @@ void produce_code(GNode * node)
 		fprintf(stream, "	call string class [mscorlib]System.Console::ReadLine()\n");
 		fprintf(stream, "	call int32 int32::Parse(string)\n");
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
-	} else if (node->data == "if") {//TOK_IF booleanexpr TOK_THEN code elseif else TOK_END
-		produce_code(g_node_nth_child(node, 0));
-		fprintf(stream, "%s%d:\n",branchement,cpt);
-		produce_code(g_node_nth_child(node, 1));
-		fprintf(stream, "	br %sendif%d\n",branchement,cptEndIf);
+	} else if (node->data == "if") {
+		cptEndIf++; // Incrémentation du compteur de if
+		int tmpCpt = cptEndIf;
+
+		produce_code(g_node_nth_child(node, 0)); // Production du code de l'expression booléenne
+
+		fprintf(stream, "%s%d_%d:\n",branchement, cptEndIf, cpt); 
+		produce_code(g_node_nth_child(node, 1)); // Production du code
+		fprintf(stream, "	br %sendif%d\n",branchement,tmpCpt); // branchement vers la fin du if
 		cpt++;
 		fprintf(stream, "%s%d:\n",branchement,cpt);
-		if(g_node_n_children(node)>=3) {			
-			cpt++;	
-			produce_code(g_node_nth_child(node, 2));
-			if(g_node_n_children(node)>=4) {		 
-			fprintf(stream, "%s%d:\n",branchement,cpt);
-			produce_code(g_node_nth_child(node, 3));
+		if(g_node_n_children(node)>=3) { // Si le if contient un elseif ou else on continue le traitement		
+				cpt++;	
+				produce_code(g_node_nth_child(node, 2)); // Production du code
+				if(g_node_n_children(node)>=4) { // Si le if contient un elseif et else 		 
+				fprintf(stream, "%s%d_%d:\n",branchement, cptEndIf, cpt);
+				produce_code(g_node_nth_child(node, 3)); // Production du else
 			}
 		}	
 		
-		fprintf(stream, "%sendif%d:\n",branchement,cptEndIf);
-		cptEndIf++;
+		fprintf(stream, "%sendif%d:\n",branchement,tmpCpt); // branchement fin du if
 
-	} else if (node->data == "elseif") { // TOK_ELSEIF booleanexpr TOK_THEN code endif elseif 
-		produce_code(g_node_nth_child(node, 0));
-		produce_code(g_node_nth_child(node, 1));
+
+	} else if (node->data == "elseif") { 
+		produce_code(g_node_nth_child(node, 0)); // Production du code l'expression booléenne 
+		produce_code(g_node_nth_child(node, 1)); //
 		fprintf(stream, "	br %sendif%d\n",branchement,cptEndIf);
 		cpt++;
 		fprintf(stream, "%s%d:\n",branchement,cpt);
 		if(g_node_n_children(node)==3) {
 			produce_code(g_node_nth_child(node, 2));
 			cpt++;	
-		}
+		}	
 	} else if (node->data == "else") {
 		produce_code(g_node_nth_child(node, 0)); 
 	} else if (node->data == "false") { //false -> return 0; brfalse pour verif booleanexpr
@@ -640,16 +645,24 @@ void produce_code(GNode * node)
 		}
 	}else if(node->data =="while"){ //while booleanexpr do code end 
 		//réalisé sur le modèle du code assembleur d'un while en c#-->CIL
-		int cptWhile = cpt+1;
-		int cpt2 = cpt+2;
-		cpt+=3;
-		fprintf(stream, "	br %s%d\n",branchement,cpt2); // va vers brachement + cpt2, la verif booleanexpr
-		fprintf(stream, "%s%d:\n",branchement,cptWhile); //branchement pour la boucle, si verif OK -> boucle ici
+		// Initialisation, incrémentation et déclaration des variables nécessaires aux branchements
+		cptWhile++; // Incrémentation du compteur de while (pour les branchements)
+		int tmpWhile = cptWhile;
+		int valcpt = cpt;
+		cpt+= tmpWhile;
+
+		fprintf(stream, "	br %s%d_condwhile\n",branchement,tmpWhile); // branchement vers la condition du while
+		fprintf(stream, "%s%d:\n",branchement, valcpt+tmpWhile-1); //branchement pour la boucle, si verif OK -> boucle ici
 		produce_code(g_node_nth_child(node, 1)); //code à exec si verif OK
-		fprintf(stream, "%s%d:\n",branchement,cpt2);
+		fprintf(stream, "%s%d_condwhile:\n",branchement,tmpWhile); // branchement de la booleanexpr
+		cpt= valcpt+1*tmpWhile-1; // Modification du compteur vers le code correspondant
 		produce_code(g_node_nth_child(node, 0)); //verif booleanexpr
-		fprintf(stream, "	br %s%d\n",branchement,cptWhile);//la verif de la ligne du haut faut un branchement si false, sinon branchement ici pour boucler
-		fprintf(stream, "%s%d:\n",branchement,cpt+1);//sortie
+		cpt+= 3; // Modification du compteur
+
+		fprintf(stream, "	br %s%d\n",branchement,valcpt+tmpWhile-1); //la verif de la ligne du haut faut un branchement si false, sinon branchement ici pour boucler
+		fprintf(stream, "%s%d:\n",branchement, valcpt+tmpWhile); //sortie
+
+
 	}else if(node->data =="foreach"){ //foreach ident in expr1 .. expr2 do code end -> Une affectation, une incrementation, if <expr2 code
 		int cptFE = cpt; 
 		cpt+=1;

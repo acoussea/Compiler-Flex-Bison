@@ -1,0 +1,26 @@
+read a;
+b:= 678 + 54 * 67;
+c := 54 - 56 - 76;
+d := a*2+56;
+e := 3;
+f := 110;
+j := 10;
+k := 97;
+g := 100;
+
+while a < g do
+	print g;
+	while a < k do
+		print k;
+		a := a + 1;
+		while a < f do
+			print f;
+			a := a + 1;
+		end
+		print k;
+	end
+	print g;
+	a := a + 1;
+end
+print d;
+

@@ -3,7 +3,7 @@
 {
 	.entrypoint
 	.maxstack 10
-	.locals init (int32, int32, int32, int32, int32)
+	.locals init (int32, int32, int32, int32, int32, int32, int32, int32, int32)
 	call string class [mscorlib]System.Console::ReadLine()
 	call int32 int32::Parse(string)
 	stloc	0
@@ -27,18 +27,84 @@
 	stloc	3
 	ldc.i4	3
 	stloc	4
+	ldc.i4	110
+	stloc	5
+	ldc.i4	10
+	stloc	6
+	ldc.i4	97
+	stloc	7
+	ldc.i4	100
+	stloc	8
 	ldloc	0
 	ldloc	4
-	beq IL_0
-	ldloc	1
-	ldloc	2
 	bne.un IL_1
-IL_0:
+IL_1_0:
 	ldloc	4
 	call void class [mscorlib]System.Console::WriteLine(int32)
-	br IL_endif0
+	br IL_endif1
 IL_1:
-IL_endif0:
+	ldloc	0
+	ldloc	7
+	bne.un IL_3
+	ldloc	7
+	call void class [mscorlib]System.Console::WriteLine(int32)
+	br IL_endif1
+IL_3:
+	ldloc	0
+	ldloc	8
+	bne.un IL_4
+	ldloc	8
+	call void class [mscorlib]System.Console::WriteLine(int32)
+	br IL_endif1
+IL_4:
+IL_1_5:
+	br IL_1_condwhile
+IL_5:
+	ldloc	8
+	call void class [mscorlib]System.Console::WriteLine(int32)
+	br IL_2_condwhile
+IL_7:
+	ldloc	7
+	call void class [mscorlib]System.Console::WriteLine(int32)
+	ldloc	0
+	ldc.i4	1
+	add
+	stloc	0
+	br IL_3_condwhile
+IL_10:
+	ldloc	5
+	call void class [mscorlib]System.Console::WriteLine(int32)
+	ldloc	0
+	ldc.i4	1
+	add
+	stloc	0
+IL_3_condwhile:
+	ldloc	0
+	ldloc	5
+	bge IL_11
+	br IL_10
+IL_11:
+	ldloc	7
+	call void class [mscorlib]System.Console::WriteLine(int32)
+IL_2_condwhile:
+	ldloc	0
+	ldloc	7
+	bge IL_8
+	br IL_7
+IL_8:
+	ldloc	8
+	call void class [mscorlib]System.Console::WriteLine(int32)
+	ldloc	0
+	ldc.i4	1
+	add
+	stloc	0
+IL_1_condwhile:
+	ldloc	0
+	ldloc	8
+	bge IL_6
+	br IL_5
+IL_6:
+IL_endif1:
 	ldloc	3
 	call void class [mscorlib]System.Console::WriteLine(int32)
 	ret

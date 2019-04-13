@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.lex.c
+/home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/facile.lex.c
 stdio.h
 -
 string.h
@@ -20,11 +20,11 @@ inttypes.h
 glib.h
 -
 facile.y.h
-/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.h
+/home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/facile.y.h
 unistd.h
 -
 
-/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c
+/home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/facile.y.c
 stdio.h
 -
 stdlib.h
@@ -52,7 +52,7 @@ stdio.h
 stdlib.h
 -
 
-/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.h
+/home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/facile.y.h
 
 /usr/include/glib-2.0/glib.h
 glib/galloca.h
@@ -181,6 +181,8 @@ glib/gurifuncs.h
 -
 glib/gutils.h
 -
+glib/guuid.h
+-
 glib/gvarianttype.h
 -
 glib/gvariant.h
@@ -259,6 +261,8 @@ glib/gtypes.h
 /usr/include/glib-2.0/glib/gbacktrace.h
 glib/gtypes.h
 -
+sys/select.h
+-
 signal.h
 -
 
@@ -329,6 +333,8 @@ glib/gquark.h
 -
 
 /usr/include/glib-2.0/glib/gfileutils.h
+glibconfig.h
+-
 glib/gerror.h
 -
 
@@ -365,6 +371,8 @@ glib/gstring.h
 -
 
 /usr/include/glib-2.0/glib/gkeyfile.h
+glib/gbytes.h
+-
 glib/gerror.h
 -
 
@@ -412,6 +420,8 @@ stdarg.h
 glib/gtypes.h
 -
 glib/gmacros.h
+-
+glib/gvariant.h
 -
 
 /usr/include/glib-2.0/glib/gnode.h
@@ -495,6 +505,8 @@ glib/gmacros.h
 -
 glib/gtypes.h
 -
+glib/gerror.h
+-
 
 /usr/include/glib-2.0/glib/gstring.h
 glib/gtypes.h
@@ -518,6 +530,8 @@ glib/gstring.h
 glib/gerror.h
 -
 glib/gslist.h
+-
+string.h
 -
 
 /usr/include/glib-2.0/glib/gthread.h
@@ -573,6 +587,12 @@ glib/gtypes.h
 -
 stdarg.h
 -
+stdlib.h
+-
+
+/usr/include/glib-2.0/glib/guuid.h
+glib/gtypes.h
+-
 
 /usr/include/glib-2.0/glib/gvariant.h
 glib/gvarianttype.h
@@ -583,8 +603,6 @@ glib/gbytes.h
 -
 
 /usr/include/glib-2.0/glib/gvarianttype.h
-glib/gmessages.h
--
 glib/gtypes.h
 -
 
