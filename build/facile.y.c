@@ -89,7 +89,7 @@ int cptEndIf = 0;
 char* branchement = "IL_";	
 
 
-#line 93 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:339  */
+#line 93 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -109,8 +109,8 @@ char* branchement = "IL_";
 
 /* In a future release of Bison, this section will be replaced
    by #include "facile.y.h".  */
-#ifndef YY_YY_HOME_ATANCHE_DOCUMENTS_COMPILATIONPROJET_TRUEGIT_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
-# define YY_YY_HOME_ATANCHE_DOCUMENTS_COMPILATIONPROJET_TRUEGIT_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
+#ifndef YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_NOUVEAU_DOSSIER_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
+# define YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_NOUVEAU_DOSSIER_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -175,7 +175,7 @@ union YYSTYPE
 	char *string;
 	GNode * node;
 
-#line 179 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:355  */
+#line 179 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -188,11 +188,11 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_HOME_ATANCHE_DOCUMENTS_COMPILATIONPROJET_TRUEGIT_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED  */
+#endif /* !YY_YY_MEDIA_QI_ACOUSSEA_COURS_L3_COMPILATION_NOUVEAU_DOSSIER_COMPILER_FLEX_BISON_BUILD_FACILE_Y_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
-#line 196 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:358  */
+#line 196 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -1364,7 +1364,7 @@ yyreduce:
 	end_code();
 	g_node_destroy((yyvsp[0].node));
 }
-#line 1368 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1368 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 3:
@@ -1374,7 +1374,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-1].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));		
 	}
-#line 1378 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1378 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 4:
@@ -1382,7 +1382,7 @@ yyreduce:
     {
 		(yyval.node) = g_node_new("");
 	}
-#line 1386 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1386 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 14:
@@ -1396,7 +1396,7 @@ yyreduce:
 		}
 		g_node_append_data((yyval.node), (gpointer)value);
 	}
-#line 1400 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1400 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 15:
@@ -1406,7 +1406,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-3].node));	
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1410 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1410 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 16:
@@ -1415,7 +1415,7 @@ yyreduce:
 		(yyval.node) = g_node_new("print");
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1419 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1419 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 17:
@@ -1424,7 +1424,7 @@ yyreduce:
 		(yyval.node) = g_node_new("read");
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1428 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1428 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 19:
@@ -1433,7 +1433,7 @@ yyreduce:
 		(yyval.node) = g_node_new("number");
 		g_node_append_data((yyval.node), (gpointer)(yyvsp[0].number));
 	}
-#line 1437 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1437 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 20:
@@ -1443,7 +1443,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1447 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1447 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 21:
@@ -1453,7 +1453,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1457 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1457 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 22:
@@ -1463,7 +1463,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1467 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1467 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 23:
@@ -1473,7 +1473,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1477 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1477 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 24:
@@ -1481,7 +1481,7 @@ yyreduce:
     {
 		(yyval.node) = (yyvsp[-1].node);
 	}
-#line 1485 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1485 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 25:
@@ -1489,7 +1489,7 @@ yyreduce:
     {
 		(yyval.node) = g_node_new("false");
 	}
-#line 1493 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1493 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 26:
@@ -1497,7 +1497,7 @@ yyreduce:
     {
 		(yyval.node) = g_node_new("true");
 	}
-#line 1501 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1501 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 27:
@@ -1507,7 +1507,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1511 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1511 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 28:
@@ -1517,7 +1517,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1521 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1521 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 29:
@@ -1527,7 +1527,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1531 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1531 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 30:
@@ -1537,7 +1537,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1541 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1541 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 31:
@@ -1547,7 +1547,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1551 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1551 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 32:
@@ -1557,7 +1557,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1561 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1561 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 33:
@@ -1566,7 +1566,7 @@ yyreduce:
 		(yyval.node) = g_node_new("not");
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1570 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1570 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 34:
@@ -1576,7 +1576,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1580 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1580 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 35:
@@ -1586,7 +1586,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));	
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1590 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1590 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 36:
@@ -1595,7 +1595,7 @@ yyreduce:
 		(yyval.node) = g_node_new("booleanexpr");
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1599 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1599 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 37:
@@ -1607,7 +1607,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1611 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1611 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 38:
@@ -1619,7 +1619,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1623 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1623 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 39:
@@ -1629,7 +1629,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-3].node));	
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1633 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1633 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 40:
@@ -1640,7 +1640,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1644 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1644 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 41:
@@ -1650,7 +1650,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-3].node));	
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1654 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1654 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 42:
@@ -1661,7 +1661,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1665 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1665 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 43:
@@ -1672,7 +1672,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1676 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1676 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 44:
@@ -1684,7 +1684,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1688 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1688 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 45:
@@ -1694,7 +1694,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-3].node));	
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1698 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1698 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 46:
@@ -1705,7 +1705,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-2].node));
 		g_node_append((yyval.node), (yyvsp[0].node));
 	}
-#line 1709 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1709 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 47:
@@ -1714,7 +1714,7 @@ yyreduce:
 		(yyval.node) = g_node_new("else");
 		g_node_append((yyval.node), (yyvsp[0].node));	
 	}
-#line 1718 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1718 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 48:
@@ -1724,7 +1724,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-3].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1728 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1728 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 49:
@@ -1732,7 +1732,7 @@ yyreduce:
     {
 		
 	}
-#line 1736 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1736 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 50:
@@ -1744,7 +1744,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-3].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1748 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1748 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 51:
@@ -1756,7 +1756,7 @@ yyreduce:
 		g_node_append((yyval.node), (yyvsp[-3].node));
 		g_node_append((yyval.node), (yyvsp[-1].node));
 	}
-#line 1760 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1760 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
   case 52:
@@ -1764,11 +1764,11 @@ yyreduce:
     {
 		(yyval.node) = g_node_new("break");
 	}
-#line 1768 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1768 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
     break;
 
 
-#line 1772 "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
+#line 1772 "/media/Qi/acoussea/Cours/L3/compilation/Nouveau dossier/Compiler-Flex-Bison/build/facile.y.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2066,24 +2066,23 @@ void produce_code(GNode * node)
 		fprintf(stream, "	call int32 int32::Parse(string)\n");
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
 	} else if (node->data == "if") {//TOK_IF booleanexpr TOK_THEN code elseif else TOK_END
-		cptEndIf++;
-		int tmpCpt = cptEndIf;
 		produce_code(g_node_nth_child(node, 0));
-		fprintf(stream, "%s%d_%d:\n",branchement, cptEndIf, cpt);
+		fprintf(stream, "%s%d:\n",branchement,cpt);
 		produce_code(g_node_nth_child(node, 1));
-		fprintf(stream, "	br %sendif%d\n",branchement,tmpCpt);
+		fprintf(stream, "	br %sendif%d\n",branchement,cptEndIf);
 		cpt++;
 		fprintf(stream, "%s%d:\n",branchement,cpt);
 		if(g_node_n_children(node)>=3) {			
-				cpt++;	
-				produce_code(g_node_nth_child(node, 2));
-				if(g_node_n_children(node)>=4) {		 
-				fprintf(stream, "%s%d_%d:\n",branchement, cptEndIf, cpt);
-				produce_code(g_node_nth_child(node, 3));
+			cpt++;	
+			produce_code(g_node_nth_child(node, 2));
+			if(g_node_n_children(node)>=4) {		 
+			fprintf(stream, "%s%d:\n",branchement,cpt);
+			produce_code(g_node_nth_child(node, 3));
 			}
 		}	
 		
-		fprintf(stream, "%sendif%d:\n",branchement,tmpCpt);
+		fprintf(stream, "%sendif%d:\n",branchement,cptEndIf);
+		cptEndIf++;
 
 	} else if (node->data == "elseif") { // TOK_ELSEIF booleanexpr TOK_THEN code endif elseif 
 		produce_code(g_node_nth_child(node, 0));
@@ -2094,23 +2093,25 @@ void produce_code(GNode * node)
 		if(g_node_n_children(node)==3) {
 			produce_code(g_node_nth_child(node, 2));
 			cpt++;	
-		}	
-
-		
+		}
 	} else if (node->data == "else") {
 		produce_code(g_node_nth_child(node, 0)); 
-	} else if (node->data == "false") {
+	} else if (node->data == "false") { //false -> return 0; brfalse pour verif booleanexpr
 		fprintf(stream, "	ldc.i4\t0\n");
 		fprintf(stream, "	brfalse %s%d\n",branchement,cpt+1);
-	} else if (node->data == "true") {
+	} else if (node->data == "true") { // true -> return 1; brfalse pour verif booleanexpr
 		fprintf(stream, "	ldc.i4\t1\n");
 		fprintf(stream, "	brfalse %s%d\n",branchement,cpt+1);
-	} else if (node->data == "<") {
-		produce_code(g_node_nth_child(node, 0));
-		produce_code(g_node_nth_child(node, 1));
-		fprintf(stream, "	bge %s%d\n",branchement,cpt+1);
+
+			//POUR CHAQUE BOOLEAN EXPR : 
+			//si ![booleanexpr], branchement à la sortie (donc ne reste pas dans la boucle d'ou la verif est appelée
+
+	} else if (node->data == "<") {                        // example :       
+		produce_code(g_node_nth_child(node, 0)); //verif des deux termes de la booleanexpr
+		produce_code(g_node_nth_child(node, 1));  //si boolExpr0 n'est pas < à boolExpr1, on branche à la sortie de la boucle
+		fprintf(stream, "	bge %s%d\n",branchement,cpt+1); //ici donc, si boolExpr0 >= boolExpr1, on sort
 	} else if (node->data == "<=") {
-		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 0)); //Pareil pour chaque booleanexpr, on verifie l'inverse pour savoir si on sort
 		produce_code(g_node_nth_child(node, 1));
 		fprintf(stream, "	bgt %s%d\n",branchement,cpt+1);
 	} else if (node->data == ">") {
@@ -2130,14 +2131,14 @@ void produce_code(GNode * node)
 		produce_code(g_node_nth_child(node, 1));
 		fprintf(stream, "	bne.un %s%d\n",branchement,cpt+1);
 	} else if (node->data == "not") {
-		if(g_node_nth_child(node,0)->data=="=")
+		if(g_node_nth_child(node,0)->data=="=") //pour le not, on doit verifier l'inverse de la booleanExpr
 		{
-			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
-			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
-			fprintf(stream, "	beq %s%d\n",branchement,cpt+1);
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));//ici, not = -> differents
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));//donc si les deux termes de la booleanExpr sont =
+			fprintf(stream, "	beq %s%d\n",branchement,cpt+1);//on sort de la boucle, verif false
 		}else if(g_node_nth_child(node,0)->data=="#")
 		{
-			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0)); //même principe pour chaque not[booleanExpr]
 			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
 			fprintf(stream, "	bne.un %s%d\n",branchement,cpt+1);
 		}else if(g_node_nth_child(node,0)->data=="<")
@@ -2164,9 +2165,9 @@ void produce_code(GNode * node)
 	} else if (node->data == "and") {
 		produce_code(g_node_nth_child(node,0));
 		produce_code(g_node_nth_child(node,1));
-	} else if (node->data == "or") {
+	} else if (node->data == "or") { //sur le modèle du code assembleur d'un while en c#-->CIL
 		if(g_node_nth_child(node,0)->data=="=")
-		{
+		{//si 
 			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
 			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
 			fprintf(stream, "	beq %s%d\n",branchement,cpt);
@@ -2202,42 +2203,37 @@ void produce_code(GNode * node)
 			fprintf(stream, "	bge %s%d\n",branchement,cpt);
 			produce_code(g_node_nth_child(node,1));
 		}
-	}else if(node->data =="while"){
-		/*fprintf(stream, "%s%d:\n",branchement,cpt);
-		produce_code(g_node_nth_child(node, 0));
-		produce_code(g_node_nth_child(node, 1));
-		fprintf(stream, "	br %s%d\n",branchement,cpt);
-		cpt+=1;
-		fprintf(stream, "%s%d:\n",branchement,cpt);*/
+	}else if(node->data =="while"){ //while booleanexpr do code end 
+		//réalisé sur le modèle du code assembleur d'un while en c#-->CIL
 		int cptWhile = cpt+1;
 		int cpt2 = cpt+2;
 		cpt+=3;
-		fprintf(stream, "	br %s%d\n",branchement,cpt2);
-		fprintf(stream, "%s%d:\n",branchement,cptWhile);
-		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	br %s%d\n",branchement,cpt2); // va vers brachement + cpt2, la verif booleanexpr
+		fprintf(stream, "%s%d:\n",branchement,cptWhile); //branchement pour la boucle, si verif OK -> boucle ici
+		produce_code(g_node_nth_child(node, 1)); //code à exec si verif OK
 		fprintf(stream, "%s%d:\n",branchement,cpt2);
-		produce_code(g_node_nth_child(node, 0));
-		fprintf(stream, "	br %s%d\n",branchement,cptWhile);
-		fprintf(stream, "%s%d:\n",branchement,cpt+1);
-	}else if(node->data =="foreach"){ //foreach ident in expr .. expr do code end
-		int cptFE = cpt;
+		produce_code(g_node_nth_child(node, 0)); //verif booleanexpr
+		fprintf(stream, "	br %s%d\n",branchement,cptWhile);//la verif de la ligne du haut faut un branchement si false, sinon branchement ici pour boucler
+		fprintf(stream, "%s%d:\n",branchement,cpt+1);//sortie
+	}else if(node->data =="foreach"){ //foreach ident in expr1 .. expr2 do code end -> Une affectation, une incrementation, if <expr2 code
+		int cptFE = cpt; 
 		cpt+=1;
-		produce_code(g_node_nth_child(node, 1));
+		produce_code(g_node_nth_child(node, 1)); //affectation ident := expr1
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
 
-		fprintf(stream, "%s%d:\n",branchement,cptFE);
-		produce_code(g_node_nth_child(node,3));
+		fprintf(stream, "%s%d:\n",branchement,cptFE);//branchement avant le debut code pour faire la boucle
+		produce_code(g_node_nth_child(node,3));//le code
 		produce_code(g_node_nth_child(node,0));
-		fprintf(stream, "	ldc.i4\t1\n");
+		fprintf(stream, "	ldc.i4\t1\n"); //incrementation : ident += 1
 		fprintf(stream, "	add\n");
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
 
 		produce_code(g_node_nth_child(node,0));
 		produce_code(g_node_nth_child(node,2));
-		fprintf(stream, "	ble %s%d\n",branchement,cptFE);
-		fprintf(stream, "%s%d:\n",branchement,cpt+1);
+		fprintf(stream, "	ble %s%d\n",branchement,cptFE); //verif boucle si ident<=expr2, on continue
+		fprintf(stream, "%s%d:\n",branchement,cpt+1); //branchement de sortie
 	}else if(node->data =="break"){
-		fprintf(stream, "	br %s%d\n",branchement,cpt+2);
+		fprintf(stream, "	br %s%d\n",branchement,cpt+2);// si appelé, réalise un branchement au br suivant de sortie
 	}else if(node->data =="continue"){
 	}
 }

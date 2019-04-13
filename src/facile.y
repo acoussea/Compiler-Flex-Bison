@@ -526,23 +526,25 @@ void produce_code(GNode * node)
 		if(g_node_n_children(node)==3) {
 			produce_code(g_node_nth_child(node, 2));
 			cpt++;	
-		}	
-
-		
+		}
 	} else if (node->data == "else") {
 		produce_code(g_node_nth_child(node, 0)); 
-	} else if (node->data == "false") {
+	} else if (node->data == "false") { //false -> return 0; brfalse pour verif booleanexpr
 		fprintf(stream, "	ldc.i4\t0\n");
 		fprintf(stream, "	brfalse %s%d\n",branchement,cpt+1);
-	} else if (node->data == "true") {
+	} else if (node->data == "true") { // true -> return 1; brfalse pour verif booleanexpr
 		fprintf(stream, "	ldc.i4\t1\n");
 		fprintf(stream, "	brfalse %s%d\n",branchement,cpt+1);
-	} else if (node->data == "<") {
-		produce_code(g_node_nth_child(node, 0));
-		produce_code(g_node_nth_child(node, 1));
-		fprintf(stream, "	bge %s%d\n",branchement,cpt+1);
+
+			//POUR CHAQUE BOOLEAN EXPR : 
+			//si ![booleanexpr], branchement à la sortie (donc ne reste pas dans la boucle d'ou la verif est appelée
+
+	} else if (node->data == "<") {                        // example :       
+		produce_code(g_node_nth_child(node, 0)); //verif des deux termes de la booleanexpr
+		produce_code(g_node_nth_child(node, 1));  //si boolExpr0 n'est pas < à boolExpr1, on branche à la sortie de la boucle
+		fprintf(stream, "	bge %s%d\n",branchement,cpt+1); //ici donc, si boolExpr0 >= boolExpr1, on sort
 	} else if (node->data == "<=") {
-		produce_code(g_node_nth_child(node, 0));
+		produce_code(g_node_nth_child(node, 0)); //Pareil pour chaque booleanexpr, on verifie l'inverse pour savoir si on sort
 		produce_code(g_node_nth_child(node, 1));
 		fprintf(stream, "	bgt %s%d\n",branchement,cpt+1);
 	} else if (node->data == ">") {
@@ -562,14 +564,14 @@ void produce_code(GNode * node)
 		produce_code(g_node_nth_child(node, 1));
 		fprintf(stream, "	bne.un %s%d\n",branchement,cpt+1);
 	} else if (node->data == "not") {
-		if(g_node_nth_child(node,0)->data=="=")
+		if(g_node_nth_child(node,0)->data=="=") //pour le not, on doit verifier l'inverse de la booleanExpr
 		{
-			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
-			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
-			fprintf(stream, "	beq %s%d\n",branchement,cpt+1);
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));//ici, not = -> differents
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));//donc si les deux termes de la booleanExpr sont =
+			fprintf(stream, "	beq %s%d\n",branchement,cpt+1);//on sort de la boucle, verif false
 		}else if(g_node_nth_child(node,0)->data=="#")
 		{
-			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
+			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0)); //même principe pour chaque not[booleanExpr]
 			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
 			fprintf(stream, "	bne.un %s%d\n",branchement,cpt+1);
 		}else if(g_node_nth_child(node,0)->data=="<")
@@ -596,9 +598,11 @@ void produce_code(GNode * node)
 	} else if (node->data == "and") {
 		produce_code(g_node_nth_child(node,0));
 		produce_code(g_node_nth_child(node,1));
-	} else if (node->data == "or") {
+	} else if (node->data == "or") { //sur le modèle du code assembleur d'un while en c#-->CIL
 		if(g_node_nth_child(node,0)->data=="=")
-		{
+		{//suite de plusieurs booleanExpr séparés par or :
+		//on verifie pour chaque l'inverse, pour ne pas sortir si false,
+		//Le derneir et une verif normale de booleanexpr, si faux on peut sortir
 			produce_code(g_node_nth_child(g_node_nth_child(node,0), 0));
 			produce_code(g_node_nth_child(g_node_nth_child(node,0), 1));
 			fprintf(stream, "	beq %s%d\n",branchement,cpt);
@@ -634,42 +638,37 @@ void produce_code(GNode * node)
 			fprintf(stream, "	bge %s%d\n",branchement,cpt);
 			produce_code(g_node_nth_child(node,1));
 		}
-	}else if(node->data =="while"){
-		/*fprintf(stream, "%s%d:\n",branchement,cpt);
-		produce_code(g_node_nth_child(node, 0));
-		produce_code(g_node_nth_child(node, 1));
-		fprintf(stream, "	br %s%d\n",branchement,cpt);
-		cpt+=1;
-		fprintf(stream, "%s%d:\n",branchement,cpt);*/
+	}else if(node->data =="while"){ //while booleanexpr do code end 
+		//réalisé sur le modèle du code assembleur d'un while en c#-->CIL
 		int cptWhile = cpt+1;
 		int cpt2 = cpt+2;
 		cpt+=3;
-		fprintf(stream, "	br %s%d\n",branchement,cpt2);
-		fprintf(stream, "%s%d:\n",branchement,cptWhile);
-		produce_code(g_node_nth_child(node, 1));
+		fprintf(stream, "	br %s%d\n",branchement,cpt2); // va vers brachement + cpt2, la verif booleanexpr
+		fprintf(stream, "%s%d:\n",branchement,cptWhile); //branchement pour la boucle, si verif OK -> boucle ici
+		produce_code(g_node_nth_child(node, 1)); //code à exec si verif OK
 		fprintf(stream, "%s%d:\n",branchement,cpt2);
-		produce_code(g_node_nth_child(node, 0));
-		fprintf(stream, "	br %s%d\n",branchement,cptWhile);
-		fprintf(stream, "%s%d:\n",branchement,cpt+1);
-	}else if(node->data =="foreach"){ //foreach ident in expr .. expr do code end
-		int cptFE = cpt;
+		produce_code(g_node_nth_child(node, 0)); //verif booleanexpr
+		fprintf(stream, "	br %s%d\n",branchement,cptWhile);//la verif de la ligne du haut faut un branchement si false, sinon branchement ici pour boucler
+		fprintf(stream, "%s%d:\n",branchement,cpt+1);//sortie
+	}else if(node->data =="foreach"){ //foreach ident in expr1 .. expr2 do code end -> Une affectation, une incrementation, if <expr2 code
+		int cptFE = cpt; 
 		cpt+=1;
-		produce_code(g_node_nth_child(node, 1));
+		produce_code(g_node_nth_child(node, 1)); //affectation ident := expr1
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
 
-		fprintf(stream, "%s%d:\n",branchement,cptFE);
-		produce_code(g_node_nth_child(node,3));
+		fprintf(stream, "%s%d:\n",branchement,cptFE);//branchement avant le debut code pour faire la boucle
+		produce_code(g_node_nth_child(node,3));//le code
 		produce_code(g_node_nth_child(node,0));
-		fprintf(stream, "	ldc.i4\t1\n");
+		fprintf(stream, "	ldc.i4\t1\n"); //incrementation : ident += 1
 		fprintf(stream, "	add\n");
 		fprintf(stream, "	stloc\t%ld\n", (long) g_node_nth_child(g_node_nth_child(node, 0), 0)->data - 1);
 
 		produce_code(g_node_nth_child(node,0));
 		produce_code(g_node_nth_child(node,2));
-		fprintf(stream, "	ble %s%d\n",branchement,cptFE);
-		fprintf(stream, "%s%d:\n",branchement,cpt+1);
+		fprintf(stream, "	ble %s%d\n",branchement,cptFE); //verif boucle si ident<=expr2, on continue
+		fprintf(stream, "%s%d:\n",branchement,cpt+1); //branchement de sortie
 	}else if(node->data =="break"){
-		fprintf(stream, "	br %s%d\n",branchement,cpt+2);
+		fprintf(stream, "	br %s%d\n",branchement,cpt+2);// si appelé, réalise un branchement au br suivant de sortie
 	}else if(node->data =="continue"){
 	}
 }

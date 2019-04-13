@@ -25,27 +25,20 @@
 	ldc.i4	56
 	add
 	stloc	3
-	ldc.i4	1
+	ldc.i4	3
 	stloc	4
+	ldloc	0
+	ldloc	4
+	beq IL_0
+	ldloc	1
+	ldloc	2
+	bne.un IL_1
 IL_0:
 	ldloc	4
-	ldc.i4	8
-	bne.un IL_2
-IL_1_1:
-	br IL_3
-	br IL_endif1
-IL_2:
-IL_endif1:
-	ldloc	4
 	call void class [mscorlib]System.Console::WriteLine(int32)
-	ldloc	4
-	ldc.i4	1
-	add
-	stloc	4
-	ldloc	4
-	ldc.i4	10
-	ble IL_0
-IL_3:
+	br IL_endif0
+IL_1:
+IL_endif0:
 	ldloc	3
 	call void class [mscorlib]System.Console::WriteLine(int32)
 	ret
