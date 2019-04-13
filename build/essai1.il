@@ -31,11 +31,11 @@ IL_0:
 	ldloc	4
 	ldc.i4	8
 	bne.un IL_2
-IL_1:
+IL_1_1:
 	br IL_3
-	br IL_endif0
+	br IL_endif1
 IL_2:
-IL_endif0:
+IL_endif1:
 	ldloc	4
 	call void class [mscorlib]System.Console::WriteLine(int32)
 	ldloc	4
