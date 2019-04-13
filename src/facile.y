@@ -123,10 +123,6 @@ instruction:
 |
 	if
 |
-	elseif
-|
-	else
-|
 	while
 |
 	foreach
@@ -367,19 +363,20 @@ if :
 
 elseif :
 
-	TOK_ELSEIF booleanexpr TOK_THEN code TOK_ENDIF
+	TOK_ELSEIF booleanexpr TOK_THEN code elseif
 	{
 		$$ = g_node_new("elseif");
 		g_node_append($$, $2);	
 		g_node_append($$, $4);
+		g_node_append($$, $5);
 	}
 |
-	TOK_ELSEIF booleanexpr TOK_THEN code TOK_ENDIF elseif 
+	TOK_ELSEIF booleanexpr TOK_THEN code  
 	{
 		$$ = g_node_new("elseif");
 		g_node_append($$, $2);	
 		g_node_append($$, $4);
-		g_node_append($$, $6);
+		
 	}	
 ;
 
@@ -523,17 +520,25 @@ void produce_code(GNode * node)
 
 
 	} else if (node->data == "elseif") { //elseif booleanexpr then code endif elseif
+		int tmpCpt = cpt;
+		cpt++;	
+		fprintf(stream, "%s%d:\n",branchement, tmpCpt+1);	
 		produce_code(g_node_nth_child(node, 0)); // Production du code l'expression booléenne 
-		produce_code(g_node_nth_child(node, 1)); // Production du code
+		cpt--;
+		
+		produce_code(g_node_nth_child(node, 1)); // Production du code		
+		 		
 		fprintf(stream, "	br %sendif%d\n",branchement,cptEndIf); // Branchement vers la fin du if
-		cpt++;
-		fprintf(stream, "%s%d:\n",branchement,cpt); 
+		
 		if(g_node_n_children(node)==3) { // Si le elseif est suivi d'un autre elseif on continue le traitement
+			cpt+=1;	
 			produce_code(g_node_nth_child(node, 2)); // Production du elseif
-			cpt++;	
-		}	
+				
+		}
+		fprintf(stream, "%s%d:\n",branchement,tmpCpt+3); 
+		cpt+=tmpCpt*2;	
 	} else if (node->data == "else") {
-		produce_code(g_node_nth_child(node, 0)); 
+		produce_code(g_node_nth_child(node, 0));
 	} else if (node->data == "false") { //false -> return 0; brfalse pour verif booleanexpr
 		fprintf(stream, "	ldc.i4\t0\n");
 		fprintf(stream, "	brfalse %s%d\n",branchement,cpt+1);

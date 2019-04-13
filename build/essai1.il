@@ -43,27 +43,29 @@ IL_1_0:
 	call void class [mscorlib]System.Console::WriteLine(int32)
 	br IL_endif1
 IL_1:
-	ldloc	0
-	ldloc	7
-	bne.un IL_3
-	ldloc	7
-	call void class [mscorlib]System.Console::WriteLine(int32)
-	br IL_endif1
 IL_3:
 	ldloc	0
-	ldloc	8
+	ldloc	7
 	bne.un IL_4
-	ldloc	8
+	ldloc	7
 	call void class [mscorlib]System.Console::WriteLine(int32)
 	br IL_endif1
 IL_4:
-IL_1_5:
-	br IL_1_condwhile
+	ldloc	0
+	ldloc	8
+	bne.un IL_5
+	ldloc	8
+	call void class [mscorlib]System.Console::WriteLine(int32)
+	br IL_endif1
+IL_6:
 IL_5:
+IL_1_13:
+	br IL_1_condwhile
+IL_13:
 	ldloc	8
 	call void class [mscorlib]System.Console::WriteLine(int32)
 	br IL_2_condwhile
-IL_7:
+IL_15:
 	ldloc	7
 	call void class [mscorlib]System.Console::WriteLine(int32)
 	ldloc	0
@@ -71,7 +73,7 @@ IL_7:
 	add
 	stloc	0
 	br IL_3_condwhile
-IL_10:
+IL_18:
 	ldloc	5
 	call void class [mscorlib]System.Console::WriteLine(int32)
 	ldloc	0
@@ -81,17 +83,17 @@ IL_10:
 IL_3_condwhile:
 	ldloc	0
 	ldloc	5
-	bge IL_11
-	br IL_10
-IL_11:
+	bge IL_19
+	br IL_18
+IL_19:
 	ldloc	7
 	call void class [mscorlib]System.Console::WriteLine(int32)
 IL_2_condwhile:
 	ldloc	0
 	ldloc	7
-	bge IL_8
-	br IL_7
-IL_8:
+	bge IL_16
+	br IL_15
+IL_16:
 	ldloc	8
 	call void class [mscorlib]System.Console::WriteLine(int32)
 	ldloc	0
@@ -101,9 +103,9 @@ IL_8:
 IL_1_condwhile:
 	ldloc	0
 	ldloc	8
-	bge IL_6
-	br IL_5
-IL_6:
+	bge IL_14
+	br IL_13
+IL_14:
 IL_endif1:
 	ldloc	3
 	call void class [mscorlib]System.Console::WriteLine(int32)

@@ -11,10 +11,8 @@ if a = e then
 	print e; 
 elseif a = k then
 	print k;
-endif
 elseif a = g then
 	print g;
-endif 
 else 
 	while a < g do
 		print g;

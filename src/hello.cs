@@ -7,9 +7,13 @@ public class HelloWorld
     {
 	//bool c = true;
 	int a = 3;
-	for(int i = 0;i<a;i++){
-		Console.WriteLine(i);
-
-	}
+	int b = 4;
+	if(a==b){
+		Console.WriteLine("nop");
+	} else if (b==3){
+		Console.WriteLine("nop");
+	} else if (b==4){
+		Console.WriteLine("yes");
+	}	
     }
 }
