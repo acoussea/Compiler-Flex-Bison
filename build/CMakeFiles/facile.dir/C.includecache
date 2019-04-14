@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/facile.lex.c
+/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.lex.c
 stdio.h
 -
 string.h
@@ -20,11 +20,11 @@ inttypes.h
 glib.h
 -
 facile.y.h
-/home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/facile.y.h
+/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.h
 unistd.h
 -
 
-/home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/facile.y.c
+/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.c
 stdio.h
 -
 stdlib.h
@@ -52,7 +52,7 @@ stdio.h
 stdlib.h
 -
 
-/home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/facile.y.h
+/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/facile.y.h
 
 /usr/include/glib-2.0/glib.h
 glib/galloca.h

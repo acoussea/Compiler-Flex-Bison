@@ -7,8 +7,15 @@ f := 110;
 j := 10;
 k := 97;
 g := 100;
+
 if a = e then 
-	print e; 
+	if a = e then 
+		print e;
+	end
+end
+
+if a = e then 
+	print e;
 elseif a = k then
 	print k;
 elseif a = g then

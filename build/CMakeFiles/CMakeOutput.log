@@ -10,33 +10,33 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/3.10.2/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/3.10.2/CompilerIdC/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp
+Change Dir: /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_98bb0/fast"
-/usr/bin/make -f CMakeFiles/cmTC_98bb0.dir/build.make CMakeFiles/cmTC_98bb0.dir/build
-make[1] : on entre dans le répertoire « /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_98bb0.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_98bb0.dir/testCCompiler.c.o   -c /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_98bb0
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_98bb0.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_98bb0.dir/testCCompiler.c.o  -o cmTC_98bb0 
-make[1] : on quitte le répertoire « /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
+Run Build Command:"/usr/bin/make" "cmTC_ddaaf/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ddaaf.dir/build.make CMakeFiles/cmTC_ddaaf.dir/build
+make[1] : on entre dans le répertoire « /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
+Building C object CMakeFiles/cmTC_ddaaf.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_ddaaf.dir/testCCompiler.c.o   -c /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_ddaaf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ddaaf.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_ddaaf.dir/testCCompiler.c.o  -o cmTC_ddaaf 
+make[1] : on quitte le répertoire « /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp
+Change Dir: /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_d147a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_d147a.dir/build.make CMakeFiles/cmTC_d147a.dir/build
-make[1] : on entre dans le répertoire « /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_d147a.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_d147a.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_d147a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d147a.dir/link.txt --verbose=1
-/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_d147a.dir/CMakeCCompilerABI.c.o  -o cmTC_d147a 
+Run Build Command:"/usr/bin/make" "cmTC_008db/fast"
+/usr/bin/make -f CMakeFiles/cmTC_008db.dir/build.make CMakeFiles/cmTC_008db.dir/build
+make[1] : on entre dans le répertoire « /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
+Building C object CMakeFiles/cmTC_008db.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_008db.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_008db
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_008db.dir/link.txt --verbose=1
+/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_008db.dir/CMakeCCompilerABI.c.o  -o cmTC_008db 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -48,24 +48,24 @@ Thread model: posix
 gcc version 7.3.0 (Ubuntu 7.3.0-27ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_d147a' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccxieeJZ.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_d147a /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_d147a.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_d147a' '-mtune=generic' '-march=x86-64'
-make[1] : on quitte le répertoire « /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_008db' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccPCVzpm.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_008db /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_008db.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_008db' '-mtune=generic' '-march=x86-64'
+make[1] : on quitte le répertoire « /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_d147a/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_d147a.dir/build.make CMakeFiles/cmTC_d147a.dir/build]
-  ignore line: [make[1] : on entre dans le répertoire « /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »]
-  ignore line: [Building C object CMakeFiles/cmTC_d147a.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_d147a.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_d147a]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d147a.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_d147a.dir/CMakeCCompilerABI.c.o  -o cmTC_d147a ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_008db/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_008db.dir/build.make CMakeFiles/cmTC_008db.dir/build]
+  ignore line: [make[1] : on entre dans le répertoire « /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »]
+  ignore line: [Building C object CMakeFiles/cmTC_008db.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_008db.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_008db]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_008db.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_008db.dir/CMakeCCompilerABI.c.o  -o cmTC_008db ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -77,13 +77,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 7.3.0 (Ubuntu 7.3.0-27ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_d147a' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccxieeJZ.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_d147a /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_d147a.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_008db' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccPCVzpm.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_008db /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_008db.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccxieeJZ.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccPCVzpm.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -103,7 +103,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_d147a] ==> ignore
+    arg [cmTC_008db] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -115,7 +115,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_d147a.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_008db.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
@@ -145,17 +145,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp
+Change Dir: /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a21d3/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a21d3.dir/build.make CMakeFiles/cmTC_a21d3.dir/build
-make[1] : on entre dans le répertoire « /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_a21d3.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_a21d3.dir/feature_tests.c.o   -c /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_a21d3
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a21d3.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_a21d3.dir/feature_tests.c.o  -o cmTC_a21d3 
-make[1] : on quitte le répertoire « /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
+Run Build Command:"/usr/bin/make" "cmTC_8bd11/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8bd11.dir/build.make CMakeFiles/cmTC_8bd11.dir/build
+make[1] : on entre dans le répertoire « /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
+Building C object CMakeFiles/cmTC_8bd11.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_8bd11.dir/feature_tests.c.o   -c /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_8bd11
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8bd11.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_8bd11.dir/feature_tests.c.o  -o cmTC_8bd11 
+make[1] : on quitte le répertoire « /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -165,17 +165,17 @@ make[1] : on quitte le répertoire « /home/atanche/Documents/CompilationProje
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp
+Change Dir: /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_91b41/fast"
-/usr/bin/make -f CMakeFiles/cmTC_91b41.dir/build.make CMakeFiles/cmTC_91b41.dir/build
-make[1] : on entre dans le répertoire « /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_91b41.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_91b41.dir/feature_tests.c.o   -c /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_91b41
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91b41.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_91b41.dir/feature_tests.c.o  -o cmTC_91b41 
-make[1] : on quitte le répertoire « /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
+Run Build Command:"/usr/bin/make" "cmTC_b0759/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b0759.dir/build.make CMakeFiles/cmTC_b0759.dir/build
+make[1] : on entre dans le répertoire « /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
+Building C object CMakeFiles/cmTC_b0759.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_b0759.dir/feature_tests.c.o   -c /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_b0759
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b0759.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_b0759.dir/feature_tests.c.o  -o cmTC_b0759 
+make[1] : on quitte le répertoire « /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -185,17 +185,17 @@ make[1] : on quitte le répertoire « /home/atanche/Documents/CompilationProje
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp
+Change Dir: /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_7a3b0/fast"
-/usr/bin/make -f CMakeFiles/cmTC_7a3b0.dir/build.make CMakeFiles/cmTC_7a3b0.dir/build
-make[1] : on entre dans le répertoire « /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_7a3b0.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_7a3b0.dir/feature_tests.c.o   -c /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_7a3b0
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7a3b0.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_7a3b0.dir/feature_tests.c.o  -o cmTC_7a3b0 
-make[1] : on quitte le répertoire « /home/atanche/Documents/CompilationProjet/git/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
+Run Build Command:"/usr/bin/make" "cmTC_66071/fast"
+/usr/bin/make -f CMakeFiles/cmTC_66071.dir/build.make CMakeFiles/cmTC_66071.dir/build
+make[1] : on entre dans le répertoire « /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
+Building C object CMakeFiles/cmTC_66071.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_66071.dir/feature_tests.c.o   -c /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_66071
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_66071.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_66071.dir/feature_tests.c.o  -o cmTC_66071 
+make[1] : on quitte le répertoire « /home/atanche/Documents/CompilationProjet/truegit/Compiler-Flex-Bison/build/CMakeFiles/CMakeTmp »
 
 
     Feature record: C_FEATURE:1c_function_prototypes

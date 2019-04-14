@@ -519,7 +519,7 @@ void produce_code(GNode * node)
 		fprintf(stream, "%sendif%d:\n",branchement,tmpCpt); // branchement fin du if
 
 
-	} else if (node->data == "elseif") { //elseif booleanexpr then code endif elseif
+	} else if (node->data == "elseif") { //elseif booleanexpr then code elseif
 		int tmpCpt = cpt;
 		cpt++;	
 		fprintf(stream, "%s%d:\n",branchement, tmpCpt+1);	
@@ -684,7 +684,8 @@ void produce_code(GNode * node)
 		produce_code(g_node_nth_child(node,0));
 		produce_code(g_node_nth_child(node,2));
 		fprintf(stream, "	ble %s%d\n",branchement,cptFE); //verif boucle si ident<=expr2, on continue
-		fprintf(stream, "%s%d:\n",branchement,cpt+1); //branchement de sortie
+		cpt+=1;
+		fprintf(stream, "%s%d:\n",branchement,cpt); //branchement de sortie
 	}else if(node->data =="break"){
 		fprintf(stream, "	br %s%d\n",branchement,cpt+2);// si appelé, réalise un branchement au br suivant de sortie
 	}else if(node->data =="continue"){

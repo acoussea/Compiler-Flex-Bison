@@ -4,6 +4,9 @@ c := 54 - 56 - 76;
 d := a*2+56;
 
 foreach e in 1 .. 10 do
+	foreach k in 1 .. 10 do
+		if k = 8 then print k; end
+	end
 	if e = 8 then break end
 	print e;
 end

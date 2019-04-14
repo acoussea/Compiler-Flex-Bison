@@ -2,8 +2,8 @@
 
 cmake ../src/
 make 
-./facile ../src/essai1.facile
-ilasm essai1.il
-chmod 755 essai1.exe
-./essai1.exe
+./facile ../test/essai2.facile
+ilasm essai2.il
+chmod 755 essai2.exe
+./essai2.exe
 

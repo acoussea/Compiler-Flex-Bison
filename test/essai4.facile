@@ -1,0 +1,53 @@
+read a;
+
+f := 5;
+
+
+
+if true then
+	print a;
+end
+
+
+if false then
+	print a;
+end
+
+
+if a >= f then
+	print a;
+end
+
+
+if a > f then
+	print a;
+end
+
+if a < f then
+	print a;
+end
+
+
+if a <= f then
+	print a;
+end
+
+if a # f then
+	print a;
+end
+
+
+if a = f then
+	print a;
+end
+
+
+if not a = f then
+	print a;
+end
+
+
+if a >= f and a =f then
+	print a;
+end
+
